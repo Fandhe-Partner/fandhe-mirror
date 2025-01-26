@@ -1,4 +1,4 @@
-import type { UIGeneratorConfig, UIComponentSpec } from '../types';
+import type { UIComponentSpec, UIGeneratorConfig } from '../types';
 
 export class UIFrontendGenerator {
   constructor(private config: UIGeneratorConfig) {}

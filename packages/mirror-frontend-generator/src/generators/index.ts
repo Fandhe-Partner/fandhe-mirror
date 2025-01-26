@@ -1,4 +1,4 @@
-import type { GeneratorConfig, ComponentMetadata } from '../types';
+import type { ComponentMetadata, GeneratorConfig } from '../types';
 
 export class FrontendGenerator {
   constructor(private config: GeneratorConfig) {}

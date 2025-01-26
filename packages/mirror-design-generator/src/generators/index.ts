@@ -1,4 +1,4 @@
-import type { GeneratorConfig, AssetMetadata } from '../types';
+import type { AssetMetadata, GeneratorConfig } from '../types';
 
 export class DesignGenerator {
   constructor(private config: GeneratorConfig) {}

@@ -1,4 +1,4 @@
-import type { DesignTool, CompilerOptions } from '../types';
+import type { CompilerOptions, DesignTool } from '../types';
 
 export class DesignCompiler {
   constructor(private options: CompilerOptions) {}
