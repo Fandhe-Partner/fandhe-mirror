@@ -1,4 +1,28 @@
-import type { BiomeConfig } from '@biomejs/biome';
+export interface BiomeConfig {
+  $schema: string;
+  organizeImports: { enabled: boolean };
+  linter: {
+    enabled: boolean;
+    rules: {
+      recommended: boolean;
+      correctness: { [key: string]: string };
+      suspicious: { [key: string]: string };
+      style: { [key: string]: string };
+    };
+  };
+  formatter: {
+    enabled: boolean;
+    indentStyle: string;
+    indentWidth: number;
+    lineWidth: number;
+  };
+  javascript: {
+    formatter: {
+      quoteStyle: string;
+      trailingComma: string;
+    };
+  };
+}
 
 export const baseConfig: BiomeConfig = {
   $schema: 'https://biomejs.dev/schemas/1.5.3/schema.json',
