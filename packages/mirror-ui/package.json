@@ -1,0 +1,26 @@
+{
+	"name": "@fandhe/mirror-ui",
+	"version": "0.0.1",
+	"description": "Core package for headless UI components using custom syntax",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "node ../../scripts/build.js",
+		"test": "node ../../scripts/test.js",
+		"lint": "node ../../scripts/lint.js",
+		"format": "biome format . --write"
+	},
+	"keywords": ["headless-ui", "components", "accessibility"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"@fandhe/mirror-config-biome": "^0.0.1",
+		"@fandhe/mirror-config-tsconfig": "^0.0.1",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	}
+}
