@@ -1,0 +1,45 @@
+{
+  "name": "@fandhe/mirror",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Mirror - A headless UI component library with design tool integration",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "clean": "lerna clean",
+    "version": "lerna version",
+    "publish": "lerna publish"
+  },
+  "keywords": [
+    "headless-ui",
+    "design-tools",
+    "component-library",
+    "accessibility",
+    "figma",
+    "react",
+    "vue"
+  ],
+  "author": "Fandhe Partners",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "lerna": "^8.0.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fandhe-Partner/fandhe-mirror.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fandhe-Partner/fandhe-mirror/issues"
+  },
+  "homepage": "https://github.com/Fandhe-Partner/fandhe-mirror#readme"
+}
