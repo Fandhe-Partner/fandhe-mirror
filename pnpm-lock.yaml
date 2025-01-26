@@ -29,9 +29,6 @@ importers:
       '@biomejs/biome':
         specifier: ^1.5.3
         version: 1.9.4
-      '@fandhe/mirror-config-tsconfig':
-        specifier: workspace:*
-        version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
@@ -43,10 +40,6 @@ importers:
         version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
 
   packages/mirror-config-tsconfig:
-    dependencies:
-      '@fandhe/mirror-config-biome':
-        specifier: workspace:*
-        version: link:../mirror-config-biome
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -175,12 +168,6 @@ importers:
       lit:
         specifier: ^3.0.0
         version: 3.2.1
-      react:
-        specifier: ^18.0.0
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.0.0
-        version: 18.3.1(react@18.3.1)
       solid-js:
         specifier: ^1.8.0
         version: 1.9.4
@@ -230,6 +217,12 @@ importers:
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
