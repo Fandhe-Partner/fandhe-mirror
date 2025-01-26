@@ -1,37 +1,28 @@
 {
-  "name": "@fandhe/mirror-config-biome",
-  "version": "0.0.1",
-  "description": "Shared Biome configuration for Mirror UI packages",
-  "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src",
-    "biome.base.json"
-  ],
-  "scripts": {
-    "build": "node ../../scripts/build.js",
-    "test": "node ../../scripts/test.js",
-    "lint": "node ../../scripts/lint.js",
-    "format": "biome format . --write"
-  },
-  "keywords": [
-    "biome",
-    "config",
-    "linting",
-    "formatting"
-  ],
-  "author": "Fandhe Inc.",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
-    "@vitest/coverage-v8": "^1.0.0",
-    "tsup": "^8.0.1",
-    "vitest": "^1.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@fandhe/mirror-config-biome",
+	"version": "0.0.1",
+	"description": "Shared Biome configuration for Mirror UI packages",
+	"type": "module",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": ["dist", "src", "biome.base.json"],
+	"scripts": {
+		"build": "node ../../scripts/build.js",
+		"test": "node ../../scripts/test.js",
+		"lint": "node ../../scripts/lint.js",
+		"format": "biome format . --write"
+	},
+	"keywords": ["biome", "config", "linting", "formatting"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "^1.5.3",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

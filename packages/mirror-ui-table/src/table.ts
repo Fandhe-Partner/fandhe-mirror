@@ -1,7 +1,7 @@
-import type { TableConfig } from './types';
+import type { TableConfig } from "./types";
 
 export const defaultTableConfig: TableConfig = {
-  sortable: false,
-  filterable: false,
-  resizable: false,
+	sortable: false,
+	filterable: false,
+	resizable: false,
 };
