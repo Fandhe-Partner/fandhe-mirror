@@ -13,9 +13,9 @@ const result = spawnSync(
 	"npx",
 	[
 		"@biomejs/biome",
-		"check",
+		"lint",
 		".",
-		lintConfig.fix ? "--write" : "",
+		lintConfig.fix ? "--apply" : "",
 	].filter(Boolean),
 	{
 		stdio: "inherit",
