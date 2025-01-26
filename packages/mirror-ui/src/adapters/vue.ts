@@ -28,7 +28,7 @@ export const createVueAdapter = (options?: AdapterOptions): FrameworkAdapter<Vue
 					style: component.styles,
 				},
 				emits: Object.keys(component.events || {}),
-				setup: () => component.events || {},
+				setup: () => component.events || {} as Record<string, (...args: unknown[]) => void>,
 				children: component.children?.map((child) => createVueAdapter(options).toFramework(child)),
 			};
 		},
