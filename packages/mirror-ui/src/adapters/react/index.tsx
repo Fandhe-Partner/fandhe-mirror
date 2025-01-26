@@ -14,8 +14,7 @@ import type { MirrorComponent, FocusableComponent, SelectableComponent } from '.
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
-interface BaseProps<P = any> {
-  as?: ComponentType<P>;
+interface BaseProps {
   'aria-label'?: string;
   'aria-description'?: string;
   tabIndex?: number;
@@ -27,10 +26,14 @@ interface BaseProps<P = any> {
   onChange?: (event: React.ChangeEvent<any>) => void;
 }
 
-type WrappedComponentProps<P> = P & BaseProps<P>;
+type AsComponent = {
+  as?: ElementType;
+};
 
-type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<ElementType>> & {
-  defaultProps?: Partial<WrappedComponentProps<P> & RefAttributes<ElementType>>;
+type WrappedComponentProps<P> = P & BaseProps & AsComponent;
+
+type WrappedComponent<P> = ForwardRefExoticComponent<P & BaseProps & AsComponent & RefAttributes<ElementType>> & {
+  defaultProps?: Partial<P & BaseProps & AsComponent & RefAttributes<ElementType>>;
   displayName?: string;
 };
 
@@ -40,11 +43,9 @@ type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & 
 export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, WrappedComponentProps<P>>((
-    { as: As = Component, ...rest }: WrappedComponentProps<P>,
-    ref
-  ) => {
-    return <As {...rest} ref={ref} />;
+  const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
+    const { as: As = Component, ...rest } = props;
+    return <As {...(rest as P)} ref={ref} />;
   });
   Wrapped.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
   return Wrapped as WrappedComponent<P>;
@@ -92,15 +93,13 @@ export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, WrappedComponentProps<P>>((
-    { 
+  const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
+    const { 
       as: As = Component,
       'aria-label': ariaLabel,
       'aria-description': ariaDescription,
       ...rest
-    }: WrappedComponentProps<P>,
-    ref
-  ) => {
+    } = props;
     return (
       <As
         {...rest}
@@ -121,7 +120,7 @@ export function withAria<P extends MirrorComponent>(
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, P & BaseProps<P>>((props, ref) => {
+  const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
     const {
       as: As = Component,
       tabIndex,
@@ -151,7 +150,7 @@ export function withFocus<P extends FocusableComponent>(
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, P & BaseProps<P>>((props, ref) => {
+  const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
     const {
       as: As = Component,
       selected,
