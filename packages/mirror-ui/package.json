@@ -16,31 +16,36 @@
     "lint": "biome lint .",
     "format": "biome format . --write"
   },
-  "keywords": ["headless-ui", "components", "accessibility"],
+  "keywords": [
+    "headless-ui",
+    "components",
+    "accessibility"
+  ],
   "author": "Fandhe Inc.",
   "license": "MIT",
-  "dependencies": {},
   "peerDependencies": {
+    "@vue/runtime-core": "^3.0.0",
+    "lit": "^3.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "@vue/runtime-core": "^3.0.0",
-    "svelte": "^4.0.0",
-    "lit": "^3.0.0",
-    "solid-js": "^1.8.0"
+    "solid-js": "^1.8.0",
+    "svelte": "^4.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@testing-library/react": "^14.2.0",
-    "@testing-library/vue": "^8.0.0",
-    "@testing-library/svelte": "^4.0.0",
-    "@testing-library/dom": "^9.0.0",
-    "@testing-library/jest-dom": "^6.0.0",
-    "@types/node": "^20.17.0",
     "@fandhe/mirror-config-biome": "workspace:*",
     "@fandhe/mirror-config-tsconfig": "workspace:*",
+    "@testing-library/dom": "^9.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.2.0",
+    "@testing-library/svelte": "^4.0.0",
+    "@testing-library/vue": "^8.0.0",
+    "@types/jsdom": "^21.1.7",
+    "@types/node": "^20.17.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "@vitest/coverage-v8": "^1.0.0",
+    "jsdom": "^26.0.0",
     "tsup": "^8.0.1",
     "vitest": "^1.0.0"
   }
