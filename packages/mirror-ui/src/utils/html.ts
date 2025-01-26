@@ -62,14 +62,14 @@ export function createNavigation(
   Object.assign(nav, attributes);
   
   const list = document.createElement('ul');
-  items.forEach(item => {
+  for (const item of items) {
     const li = document.createElement('li');
     const a = document.createElement('a');
     a.textContent = item.text;
     a.href = item.href;
     li.appendChild(a);
     list.appendChild(li);
-  });
+  }
   
   nav.appendChild(list);
   return nav;

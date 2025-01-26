@@ -1,10 +1,9 @@
 import React from 'react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 import {
   createComponent,
-  useFocusTrap,
-  useFocusGuard,
+
   withAria,
   withFocus,
   withSelection
@@ -68,7 +67,7 @@ describe('React adapter', () => {
       const { container } = render(
         <FocusComponent
           focusable
-          tabIndex={1}
+          tabIndex={0}
           onFocus={onFocus}
           onBlur={onBlur}
         />

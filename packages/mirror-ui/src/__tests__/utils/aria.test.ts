@@ -41,7 +41,7 @@ describe('ARIA utilities', () => {
     let announcer: HTMLElement | null;
 
     afterEach(() => {
-      if (announcer && announcer.parentNode) {
+      if (announcer?.parentNode) {
         announcer.parentNode.removeChild(announcer);
       }
     });

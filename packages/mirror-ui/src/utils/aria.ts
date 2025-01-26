@@ -32,11 +32,11 @@ export function setAriaAttributes(
   element: HTMLElement,
   attributes: Record<string, string | boolean | number | undefined>
 ): void {
-  Object.entries(attributes).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(attributes)) {
     if (value !== undefined) {
       element.setAttribute(`aria-${key}`, value.toString());
     }
-  });
+  }
 }
 
 /**

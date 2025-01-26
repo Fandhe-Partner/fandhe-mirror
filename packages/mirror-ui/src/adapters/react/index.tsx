@@ -5,13 +5,10 @@ import React, {
   type ComponentType,
   type ForwardRefExoticComponent,
   type RefAttributes,
-  type ElementType,
-  type ForwardedRef,
-  type FocusEvent,
-  type ChangeEvent
+  type ElementType
 } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
-import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
+import type { AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
 interface BaseProps {
@@ -19,18 +16,18 @@ interface BaseProps {
   'aria-description'?: string;
   tabIndex?: number;
   focusable?: boolean;
-  onFocus?: (event: React.FocusEvent<any>) => void;
-  onBlur?: (event: React.FocusEvent<any>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLElement>) => void;
   selected?: boolean;
   checked?: boolean;
-  onChange?: (event: React.ChangeEvent<any>) => void;
+  onChange?: (event: React.ChangeEvent<HTMLElement>) => void;
 }
 
 type AsComponent = {
   as?: ElementType;
 };
 
-type WrappedComponentProps<P> = P & BaseProps & AsComponent;
+export type WrappedComponentProps<P> = P & BaseProps & AsComponent;
 
 type WrappedComponent<P> = ForwardRefExoticComponent<P & BaseProps & AsComponent & RefAttributes<ElementType>> & {
   defaultProps?: Partial<P & BaseProps & AsComponent & RefAttributes<ElementType>>;
