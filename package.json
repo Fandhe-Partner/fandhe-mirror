@@ -27,7 +27,7 @@
   "author": "Fandhe Inc.",
   "license": "MIT",
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.9.4",
     "@types/node": "^20.0.0",
     "lerna": "^8.0.0",
     "types-tsconfig": "^2.0.2",
