@@ -1,13 +1,13 @@
-export interface BiomeConfig {
+export type BiomeConfig = {
   $schema: string;
   organizeImports: { enabled: boolean };
   linter: {
     enabled: boolean;
     rules: {
       recommended: boolean;
-      correctness: { [key: string]: string };
-      suspicious: { [key: string]: string };
-      style: { [key: string]: string };
+      correctness: Record<string, string>;
+      suspicious: Record<string, string>;
+      style: Record<string, string>;
     };
   };
   formatter: {
@@ -22,9 +22,9 @@ export interface BiomeConfig {
       trailingComma: string;
     };
   };
-}
+};
 
-export const baseConfig: BiomeConfig = {
+export const baseConfig = {
   $schema: 'https://biomejs.dev/schemas/1.5.3/schema.json',
   organizeImports: {
     enabled: true,

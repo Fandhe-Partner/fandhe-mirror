@@ -1,4 +1,4 @@
-export interface TSConfig {
+export type TSConfig = {
   compilerOptions: {
     target: string;
     module: string;
@@ -16,9 +16,9 @@ export interface TSConfig {
   };
   include?: string[];
   exclude?: string[];
-}
+};
 
-export const baseConfig: TSConfig = {
+export const baseConfig = {
   compilerOptions: {
     target: 'ES2020',
     module: 'ESNext',

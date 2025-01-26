@@ -2,6 +2,7 @@
   "name": "@fandhe/mirror-config-biome",
   "version": "0.0.1",
   "description": "Shared Biome configuration for Mirror UI packages",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
