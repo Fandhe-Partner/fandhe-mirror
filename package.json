@@ -5,7 +5,7 @@
 	"description": "Mirror - A headless UI component library with design tool integration",
 	"workspaces": ["packages/*"],
 	"scripts": {
-		"build": "lerna run build --stream",
+		"build": "lerna run build --stream --scope '@fandhe/mirror-config-*'",
 		"test": "lerna run test --stream",
 		"lint": "lerna run lint --stream",
 		"clean": "rm -rf node_modules packages/*/node_modules",
