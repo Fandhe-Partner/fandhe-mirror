@@ -45,7 +45,7 @@ export function createComponent<P extends MirrorComponent>(
 ): WrappedComponent<P> {
   const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
     const { as: As = Component, ...rest } = props;
-    return <As {...(rest as P)} ref={ref} />;
+    return <As {...(rest as unknown as P)} ref={ref} />;
   });
   Wrapped.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
   return Wrapped as WrappedComponent<P>;
@@ -132,7 +132,7 @@ export function withFocus<P extends FocusableComponent>(
 
     return (
       <As
-        {...(rest as P)}
+        {...(rest as unknown as P)}
         ref={ref}
         tabIndex={focusable ? tabIndex ?? 0 : -1}
         onFocus={onFocus}
@@ -161,7 +161,7 @@ export function withSelection<P extends SelectableComponent>(
 
     return (
       <As
-        {...(rest as P)}
+        {...(rest as unknown as P)}
         ref={ref}
         aria-selected={selected}
         aria-checked={checked}
