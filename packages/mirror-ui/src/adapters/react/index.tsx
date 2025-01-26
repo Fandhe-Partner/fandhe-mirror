@@ -25,10 +25,12 @@ interface BaseProps {
   onChange?: (event: React.ChangeEvent) => void;
 }
 
-type WrappedComponentProps<P> = P & BaseProps;
+type WrappedComponentProps<P> = P & BaseProps & {
+  as?: ComponentType<P>;
+};
 
-type WrappedComponent<P> = ForwardRefExoticComponent<P & BaseProps & RefAttributes<ElementType>> & {
-  defaultProps?: Partial<P & BaseProps & RefAttributes<ElementType>>;
+type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<ElementType>> & {
+  defaultProps?: Partial<WrappedComponentProps<P> & RefAttributes<ElementType>>;
   displayName?: string;
 };
 
