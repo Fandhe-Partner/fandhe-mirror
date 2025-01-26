@@ -1,0 +1,38 @@
+{
+  "name": "@fandhe/mirror-config-tsconfig",
+  "version": "0.0.1",
+  "description": "Shared TypeScript configuration for Mirror UI packages",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "tsconfig.base.json"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean --minify",
+    "lint": "biome lint .",
+    "format": "biome format . --write"
+  },
+  "keywords": [
+    "typescript",
+    "config",
+    "tsconfig"
+  ],
+  "author": "Fandhe Inc.",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@vitest/coverage-v8": "^1.0.0",
+    "tsup": "^8.0.1",
+    "vitest": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@fandhe/mirror-config-biome": "workspace:*"
+  }
+}

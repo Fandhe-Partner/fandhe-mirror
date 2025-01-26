@@ -1,0 +1,26 @@
+{
+	"name": "@fandhe/mirror-ui-base",
+	"version": "0.0.1",
+	"description": "Foundation components with accessibility features",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"lint": "biome lint .",
+		"format": "biome format . --write"
+	},
+	"keywords": ["headless-ui", "accessibility", "components"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"dependencies": {
+		"@fandhe/mirror-ui": "workspace:*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"@fandhe/mirror-config-biome": "workspace:*",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	}
+}

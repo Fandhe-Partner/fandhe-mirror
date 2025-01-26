@@ -1,0 +1,27 @@
+{
+	"name": "@fandhe/mirror-ui-animation",
+	"version": "0.0.1",
+	"description": "Animation-specific components for Mirror UI",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"lint": "biome lint .",
+		"format": "biome format . --write"
+	},
+	"keywords": ["animation", "headless-ui", "components"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"dependencies": {
+		"@fandhe/mirror-ui": "workspace:*",
+		"@fandhe/mirror-ui-base": "workspace:*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"@fandhe/mirror-config-biome": "workspace:*",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	}
+}

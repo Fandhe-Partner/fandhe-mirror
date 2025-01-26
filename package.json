@@ -1,45 +1,51 @@
 {
-  "name": "@fandhe/mirror",
-  "version": "0.0.1",
-  "private": true,
-  "description": "Mirror - A headless UI component library with design tool integration",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "lint": "lerna run lint",
-    "clean": "lerna clean",
-    "version": "lerna version",
-    "publish": "lerna publish"
-  },
-  "keywords": [
-    "headless-ui",
-    "design-tools",
-    "component-library",
-    "accessibility",
-    "figma",
-    "react",
-    "vue"
-  ],
-  "author": "Fandhe Inc.",
-  "license": "MIT",
-  "devDependencies": {
-    "@biomejs/biome": "1.5.3",
-    "lerna": "^8.0.0",
-    "typescript": "^5.3.3"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Fandhe-Partner/fandhe-mirror.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Fandhe-Partner/fandhe-mirror/issues"
-  },
-  "homepage": "https://github.com/Fandhe-Partner/fandhe-mirror#readme"
+	"name": "@fandhe/mirror",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Mirror - A headless UI component library with design tool integration",
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"build": "lerna run build --stream",
+		"test": "lerna run test --stream",
+		"lint": "lerna run lint --stream",
+		"clean": "rm -rf node_modules packages/*/node_modules",
+		"format": "biome format . --write",
+		"version": "lerna version",
+		"publish": "lerna publish"
+	},
+	"keywords": [
+		"headless-ui",
+		"design-tools",
+		"component-library",
+		"accessibility",
+		"figma",
+		"react",
+		"vue"
+	],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "^20.0.0",
+		"lerna": "^8.0.0",
+		"types-tsconfig": "^2.0.2",
+		"typescript": "^5.3.3"
+	},
+	"packageManager": "pnpm@9.15.2",
+	"engines": {
+		"node": ">=22.13.1",
+		"pnpm": ">=9.15.2"
+	},
+	"volta": {
+		"node": "22.13.1",
+		"pnpm": "9.15.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Fandhe-Partner/fandhe-mirror.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Fandhe-Partner/fandhe-mirror/issues"
+	},
+	"homepage": "https://github.com/Fandhe-Partner/fandhe-mirror#readme"
 }

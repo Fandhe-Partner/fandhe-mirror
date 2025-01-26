@@ -1,0 +1,27 @@
+{
+	"name": "@fandhe/mirror-design-generator",
+	"version": "0.0.1",
+	"description": "Design tool asset generator for Mirror UI",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"lint": "biome lint .",
+		"format": "biome format . --write"
+	},
+	"keywords": ["design-tools", "generator", "figma", "framer", "uxpin"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"dependencies": {
+		"@fandhe/mirror-design-compiler": "workspace:*",
+		"@fandhe/mirror-ui": "workspace:*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"@fandhe/mirror-config-biome": "workspace:*",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"name": "@fandhe/mirror-ui-design-generator",
+	"version": "0.0.1",
+	"description": "UI component design tool generator for Mirror UI",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"lint": "biome lint .",
+		"format": "biome format . --write"
+	},
+	"keywords": ["ui", "design-tools", "generator", "components"],
+	"author": "Fandhe Inc.",
+	"license": "MIT",
+	"dependencies": {
+		"@fandhe/mirror-design-compiler": "workspace:*",
+		"@fandhe/mirror-design-generator": "workspace:*",
+		"@fandhe/mirror-ui": "workspace:*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
+		"@fandhe/mirror-config-biome": "workspace:*",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
+		"@vitest/coverage-v8": "^1.0.0",
+		"tsup": "^8.0.1",
+		"vitest": "^1.0.0"
+	}
+}
