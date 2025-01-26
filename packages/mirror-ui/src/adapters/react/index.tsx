@@ -4,44 +4,21 @@ import React, {
   useEffect,
   type ComponentType,
   type ForwardRefExoticComponent,
-  type PropsWithoutRef,
   type RefAttributes,
-  type ForwardedRef,
-  type ReactElement,
-  type FC,
-  type ElementType
+  type ElementType,
+  type ComponentPropsWithRef,
+  type ComponentPropsWithoutRef
 } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
-type AsProp<C extends ElementType> = {
+type WrappedComponentProps<P, C extends ElementType = any> = P & {
   as?: C;
+  ref?: ComponentPropsWithRef<C>['ref'];
 };
 
-type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
-
-type PolymorphicComponentProp<
-  C extends ElementType,
-  Props = {}
-> = PropsWithoutRef<Props & AsProp<C>> &
-  Omit<PropsWithoutRef<ComponentProps<C>>, PropsToOmit<C, Props>>;
-
-type PolymorphicRef<C extends ElementType> = ComponentProps<C>['ref'];
-
-type PolymorphicComponentPropWithRef<
-  C extends ElementType,
-  Props = {}
-> = PropsWithoutRef<Props & AsProp<C>> &
-  Omit<ComponentProps<C>, keyof (Props & AsProp<C>)> & { ref?: PolymorphicRef<C> };
-
-type ComponentProps<T extends ElementType> = T extends new (...args: any) => any
-  ? InstanceType<T>
-  : T extends keyof JSX.IntrinsicElements
-  ? JSX.IntrinsicElements[T]
-  : {};
-
-type WrappedComponent<P> = ForwardRefExoticComponent<P & { as?: ElementType }> & {
+type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P>> & {
   displayName?: string;
 };
 
@@ -51,10 +28,15 @@ type WrappedComponent<P> = ForwardRefExoticComponent<P & { as?: ElementType }> &
 export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  return forwardRef(({ as, ...props }: P & { as?: ElementType }, ref) => {
-    const Comp = as || Component;
-    return <Comp {...props} ref={ref} />;
-  }) as WrappedComponent<P>;
+  const WrappedComponent = forwardRef<any, WrappedComponentProps<P>>(
+    ({ as, ...props }, ref) => {
+      const Comp = as || Component;
+      return <Comp {...props} ref={ref} />;
+    }
+  );
+  
+  WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -99,18 +81,23 @@ export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
 ): WrappedComponent<P> {
-  return forwardRef(({ as, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...props }: P & { as?: ElementType }, ref) => {
-    const Comp = as || Component;
-    return (
-      <Comp
-        {...props}
-        ref={ref}
-        aria-label={ariaLabel}
-        aria-description={ariaDescription}
-        role={role}
-      />
-    );
-  }) as WrappedComponent<P>;
+  const WrappedComponent = forwardRef<any, WrappedComponentProps<P>>(
+    ({ as, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...props }, ref) => {
+      const Comp = as || Component;
+      return (
+        <Comp
+          {...props}
+          ref={ref}
+          aria-label={ariaLabel}
+          aria-description={ariaDescription}
+          role={role}
+        />
+      );
+    }
+  );
+  
+  WrappedComponent.displayName = `WithAria(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -119,18 +106,23 @@ export function withAria<P extends MirrorComponent>(
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  return forwardRef(({ as, tabIndex, focusable, onFocus, onBlur, ...props }: P & { as?: ElementType }, ref) => {
-    const Comp = as || Component;
-    return (
-      <Comp
-        {...props}
-        ref={ref}
-        tabIndex={focusable ? tabIndex ?? 0 : -1}
-        onFocus={onFocus}
-        onBlur={onBlur}
-      />
-    );
-  }) as WrappedComponent<P>;
+  const WrappedComponent = forwardRef<any, WrappedComponentProps<P>>(
+    ({ as, tabIndex, focusable, onFocus, onBlur, ...props }, ref) => {
+      const Comp = as || Component;
+      return (
+        <Comp
+          {...props}
+          ref={ref}
+          tabIndex={focusable ? tabIndex ?? 0 : -1}
+          onFocus={onFocus}
+          onBlur={onBlur}
+        />
+      );
+    }
+  );
+  
+  WrappedComponent.displayName = `WithFocus(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -139,16 +131,21 @@ export function withFocus<P extends FocusableComponent>(
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  return forwardRef(({ as, selected, checked, onChange, ...props }: P & { as?: ElementType }, ref) => {
-    const Comp = as || Component;
-    return (
-      <Comp
-        {...props}
-        ref={ref}
-        aria-selected={selected}
-        aria-checked={checked}
-        onChange={onChange}
-      />
-    );
-  }) as WrappedComponent<P>;
+  const WrappedComponent = forwardRef<any, WrappedComponentProps<P>>(
+    ({ as, selected, checked, onChange, ...props }, ref) => {
+      const Comp = as || Component;
+      return (
+        <Comp
+          {...props}
+          ref={ref}
+          aria-selected={selected}
+          aria-checked={checked}
+          onChange={onChange}
+        />
+      );
+    }
+  );
+  
+  WrappedComponent.displayName = `WithSelection(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
