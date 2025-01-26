@@ -15,9 +15,6 @@
     "version": "lerna version",
     "publish": "lerna publish"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "keywords": [
     "headless-ui",
     "design-tools",
