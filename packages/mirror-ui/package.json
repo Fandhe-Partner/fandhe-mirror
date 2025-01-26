@@ -6,6 +6,10 @@
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
 		"lint": "biome lint .",
 		"format": "biome format . --write"
 	},
@@ -13,8 +17,24 @@
 	"author": "Fandhe Inc.",
 	"license": "MIT",
 	"dependencies": {},
+	"peerDependencies": {
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"@vue/runtime-core": "^3.0.0",
+		"svelte": "^4.0.0",
+		"lit": "^3.0.0",
+		"solid-js": "^1.8.0"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.0",
+		"@testing-library/react": "^14.2.0",
+		"@testing-library/vue": "^8.0.0",
+		"@testing-library/svelte": "^4.0.0",
+		"@testing-library/dom": "^9.0.0",
+		"@testing-library/jest-dom": "^6.0.0",
+		"@types/node": "^20.17.0",
 		"@fandhe/mirror-config-biome": "workspace:*",
 		"@fandhe/mirror-config-tsconfig": "workspace:*",
 		"@vitest/coverage-v8": "^1.0.0",

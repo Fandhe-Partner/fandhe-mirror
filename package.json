@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"description": "Mirror - A headless UI component library with design tool integration",
+	"workspaces": ["packages/*"],
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"build": "lerna run build --stream",
