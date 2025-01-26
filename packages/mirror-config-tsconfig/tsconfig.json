@@ -1,10 +1,4 @@
 {
-  "extends": "../tsconfig.base.json",
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "outDir": "dist",
-    "declaration": true
-  },
+  "extends": "./tsconfig.base.json",
   "include": ["src"]
 }

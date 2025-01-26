@@ -3,9 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"description": "Mirror - A headless UI component library with design tool integration",
-	"workspaces": ["packages/*"],
 	"scripts": {
-		"build": "lerna run build --stream --scope '@fandhe/mirror-config-*'",
+		"preinstall": "npx only-allow pnpm",
+		"build": "lerna run build --stream",
 		"test": "lerna run test --stream",
 		"lint": "lerna run lint --stream",
 		"clean": "rm -rf node_modules packages/*/node_modules",
@@ -31,13 +31,14 @@
 		"types-tsconfig": "^2.0.2",
 		"typescript": "^5.3.3"
 	},
+	"packageManager": "pnpm@9.15.2",
 	"engines": {
-		"node": ">=18.0.0",
-		"npm": ">=8.0.0"
+		"node": ">=22.13.1",
+		"pnpm": ">=9.15.2"
 	},
 	"volta": {
 		"node": "22.13.1",
-		"npm": "10.3.0"
+		"pnpm": "9.15.2"
 	},
 	"repository": {
 		"type": "git",

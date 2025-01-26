@@ -8,9 +8,8 @@
 	"types": "dist/index.d.ts",
 	"files": ["dist", "src", "biome.base.json"],
 	"scripts": {
-		"build": "node ../../scripts/build.js",
-		"test": "node ../../scripts/test.js",
-		"lint": "node ../../scripts/lint.js",
+		"build": "tsup src/index.ts --format esm --dts --clean --minify",
+		"lint": "biome lint .",
 		"format": "biome format . --write"
 	},
 	"keywords": ["biome", "config", "linting", "formatting"],
@@ -18,6 +17,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@biomejs/biome": "^1.5.3",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
 		"@vitest/coverage-v8": "^1.0.0",
 		"tsup": "^8.0.1",
 		"vitest": "^1.0.0"

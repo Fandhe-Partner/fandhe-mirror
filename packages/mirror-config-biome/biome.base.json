@@ -22,16 +22,18 @@
 			}
 		}
 	},
+	"files": {
+		"ignore": ["dist"]
+	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "space",
 		"indentWidth": 2,
-		"lineWidth": 100
+		"lineWidth": 120
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle": "single",
-			"trailingComma": "all"
+			"quoteStyle": "single"
 		}
 	}
 }

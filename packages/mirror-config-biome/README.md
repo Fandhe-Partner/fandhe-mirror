@@ -15,7 +15,7 @@ In your `biome.json`:
 ```json
 {
   "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "extends": ["@fandhe/mirror-config-biome/biome.base.json"]
+  "extends": ["../mirror-config-biome/biome.base.json"]
 }
 ```
 

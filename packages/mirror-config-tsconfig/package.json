@@ -6,14 +6,21 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist", "src", "tsconfig.base.json"],
+  "files": [
+    "dist",
+    "src",
+    "tsconfig.base.json"
+  ],
   "scripts": {
-    "build": "node ../../scripts/build.js",
-    "test": "node ../../scripts/test.js",
-    "lint": "node ../../scripts/lint.js",
+    "build": "tsup src/index.ts --format esm --dts --clean --minify",
+    "lint": "biome lint .",
     "format": "biome format . --write"
   },
-  "keywords": ["typescript", "config", "tsconfig"],
+  "keywords": [
+    "typescript",
+    "config",
+    "tsconfig"
+  ],
   "author": "Fandhe Inc.",
   "license": "MIT",
   "devDependencies": {
@@ -24,5 +31,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@fandhe/mirror-config-biome": "workspace:*"
   }
 }
