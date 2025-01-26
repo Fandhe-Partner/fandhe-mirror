@@ -1,4 +1,9 @@
 {
-	"extends": "@fandhe/mirror-config-tsconfig/tsconfig.base.json",
-	"include": ["src"]
+  "extends": "@fandhe/mirror-config-tsconfig/tsconfig.base.json",
+  "include": ["src"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["react", "react-dom"]
+  }
 }
