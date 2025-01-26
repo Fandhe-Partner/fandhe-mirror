@@ -7,13 +7,11 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "lint": "npm run biome:check",
-    "biome:check": "biome check .",
-    "biome:format": "biome format . --write",
+    "build": "lerna run build --stream",
+    "test": "lerna run test --stream",
+    "lint": "lerna run lint --stream",
     "clean": "rm -rf node_modules packages/*/node_modules",
-    "format": "npm run biome:format",
+    "format": "lerna run format --stream",
     "version": "lerna version",
     "publish": "lerna publish"
   },
