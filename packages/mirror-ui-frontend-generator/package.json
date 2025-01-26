@@ -6,21 +6,21 @@
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"lint": "node ../../scripts/lint.js",
+		"lint": "biome lint .",
 		"format": "biome format . --write"
 	},
 	"keywords": ["ui", "frontend", "generator", "components"],
 	"author": "Fandhe Inc.",
 	"license": "MIT",
 	"dependencies": {
-		"@fandhe/mirror-frontend-compiler": "^0.0.1",
-		"@fandhe/mirror-frontend-generator": "^0.0.1",
-		"@fandhe/mirror-ui": "^0.0.1"
+		"@fandhe/mirror-frontend-compiler": "workspace:*",
+		"@fandhe/mirror-frontend-generator": "workspace:*",
+		"@fandhe/mirror-ui": "workspace:*"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",
-		"@fandhe/mirror-config-biome": "^0.0.1",
-		"@fandhe/mirror-config-tsconfig": "^0.0.1",
+		"@fandhe/mirror-config-biome": "workspace:*",
+		"@fandhe/mirror-config-tsconfig": "workspace:*",
 		"@vitest/coverage-v8": "^1.0.0",
 		"tsup": "^8.0.1",
 		"vitest": "^1.0.0"
