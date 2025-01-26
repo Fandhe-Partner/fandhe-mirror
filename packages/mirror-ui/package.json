@@ -8,13 +8,15 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest",
-    "lint": "biome check ."
+    "lint": "biome check .",
+    "format": "biome format . --write"
   },
   "keywords": ["headless-ui", "components", "accessibility"],
   "author": "Fandhe Inc.",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "tsup": "^8.0.1",
     "vitest": "^1.0.0"
   }
