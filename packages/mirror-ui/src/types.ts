@@ -13,7 +13,7 @@ export interface Component {
 	/** Component state */
 	state?: Record<string, unknown>;
 	/** Component event handlers */
-	events?: Record<string, (...args: unknown[]) => void>;
+	events?: Record<string, ((...args: unknown[]) => void) | undefined>;
 	/** Component styles */
 	styles?: Record<string, unknown>;
 	/** Component accessibility attributes */
@@ -34,7 +34,7 @@ export interface ComponentOptions {
 	/** Initial component state */
 	state?: Record<string, unknown>;
 	/** Component event handlers */
-	events?: Record<string, (...args: unknown[]) => void>;
+	events?: Record<string, ((...args: unknown[]) => void) | undefined>;
 	/** Component styles */
 	styles?: Record<string, unknown>;
 	/** Component accessibility attributes */
