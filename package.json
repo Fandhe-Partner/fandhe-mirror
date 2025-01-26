@@ -9,9 +9,11 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "biome check .",
+    "lint": "npm run biome:check",
+    "biome:check": "biome check .",
+    "biome:format": "biome format . --write",
     "clean": "rm -rf node_modules packages/*/node_modules",
-    "format": "biome format . --write",
+    "format": "npm run biome:format",
     "version": "lerna version",
     "publish": "lerna publish"
   },
