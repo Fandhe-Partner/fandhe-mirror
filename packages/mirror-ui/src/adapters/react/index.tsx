@@ -121,20 +121,19 @@ export function withAria<P extends MirrorComponent>(
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, WrappedComponentProps<P>>((
-    {
+  const Wrapped = forwardRef<ElementType, P & BaseProps<P>>((props, ref) => {
+    const {
       as: As = Component,
       tabIndex,
       focusable,
       onFocus,
       onBlur,
       ...rest
-    }: WrappedComponentProps<P>,
-    ref
-  ) => {
+    } = props;
+
     return (
       <As
-        {...rest}
+        {...(rest as P)}
         ref={ref}
         tabIndex={focusable ? tabIndex ?? 0 : -1}
         onFocus={onFocus}
@@ -152,19 +151,18 @@ export function withFocus<P extends FocusableComponent>(
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<ElementType, WrappedComponentProps<P>>((
-    {
+  const Wrapped = forwardRef<ElementType, P & BaseProps<P>>((props, ref) => {
+    const {
       as: As = Component,
       selected,
       checked,
       onChange,
       ...rest
-    }: WrappedComponentProps<P>,
-    ref
-  ) => {
+    } = props;
+
     return (
       <As
-        {...rest}
+        {...(rest as P)}
         ref={ref}
         aria-selected={selected}
         aria-checked={checked}
