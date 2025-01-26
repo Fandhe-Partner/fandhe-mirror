@@ -20,11 +20,14 @@ interface BaseProps {
   focusable?: boolean;
   onFocus?: (event: React.FocusEvent) => void;
   onBlur?: (event: React.FocusEvent) => void;
+  selected?: boolean;
+  checked?: boolean;
+  onChange?: (event: React.ChangeEvent) => void;
 }
 
-type WrappedComponentProps<P> = Omit<P, keyof BaseProps | 'ref'> & BaseProps;
+type WrappedComponentProps<P> = P & BaseProps;
 
-type WrappedComponent<P> = ForwardRefExoticComponent<P & BaseProps & RefAttributes<ElementType>>;
+type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<ElementType>>;
 
 /**
  * HOC to create a React component from Mirror component interface
@@ -35,7 +38,7 @@ export function createComponent<P extends MirrorComponent>(
   return forwardRef<ElementType, WrappedComponentProps<P>>((props, ref) => {
     const { as: As = Component, ...rest } = props;
     return <As {...rest} ref={ref} />;
-  }) as unknown as WrappedComponent<P>;
+  });
 }
 
 /**
@@ -91,7 +94,7 @@ export function withAria<P extends MirrorComponent>(
         role={role}
       />
     );
-  }) as unknown as WrappedComponent<P>;
+  });
 }
 
 /**
@@ -111,7 +114,7 @@ export function withFocus<P extends FocusableComponent>(
         onBlur={onBlur}
       />
     );
-  }) as unknown as WrappedComponent<P>;
+  });
 }
 
 /**
@@ -131,5 +134,5 @@ export function withSelection<P extends SelectableComponent>(
         onChange={onChange}
       />
     );
-  }) as unknown as WrappedComponent<P>;
+  });
 }
