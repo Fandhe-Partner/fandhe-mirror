@@ -4,6 +4,9 @@
 	"private": true,
 	"description": "Mirror - A headless UI component library with design tool integration",
 	"workspaces": ["packages/*"],
+	"engines": {
+		"node": ">=20.0.0"
+	},
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"build": "lerna run build --stream",
