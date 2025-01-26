@@ -8,3 +8,6 @@ export * from './types/component';
 export * from './utils/aria';
 export * from './utils/focus';
 export * from './utils/html';
+
+// Adapters
+export * from './adapters/react';

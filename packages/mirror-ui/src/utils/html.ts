@@ -36,17 +36,17 @@ export function createHeading(
  */
 export function createList(
   items: string[],
-  ordered: boolean = false,
+  ordered = false,
   attributes: HTMLAttributes = {}
 ): HTMLElement {
   const list = document.createElement(ordered ? 'ol' : 'ul');
   Object.assign(list, attributes);
   
-  items.forEach(item => {
+  for (const item of items) {
     const li = document.createElement('li');
     li.textContent = item;
     list.appendChild(li);
-  });
+  }
   
   return list;
 }

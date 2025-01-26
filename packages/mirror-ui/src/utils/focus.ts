@@ -76,7 +76,7 @@ export class FocusGuard {
   }
 
   restore(): void {
-    if (this.previouslyFocused && this.previouslyFocused.focus) {
+    if (this.previouslyFocused?.focus) {
       this.previouslyFocused.focus();
     }
   }
