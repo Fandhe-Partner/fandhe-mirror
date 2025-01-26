@@ -25,7 +25,7 @@ interface BaseProps {
   onChange?: (event: React.ChangeEvent) => void;
 }
 
-type WrappedComponentProps<P> = P & BaseProps;
+type WrappedComponentProps<P> = Omit<P, keyof BaseProps> & BaseProps;
 
 type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<ElementType>>;
 
@@ -36,7 +36,7 @@ export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   return forwardRef<ElementType, WrappedComponentProps<P>>((props, ref) => {
-    const { as: As = Component, ...rest } = props;
+    const { as: As = Component, ...rest } = props as BaseProps & P;
     return <As {...rest} ref={ref} />;
   });
 }
@@ -84,7 +84,7 @@ export function withAria<P extends MirrorComponent>(
   role?: AriaRole
 ): WrappedComponent<P> {
   return forwardRef<ElementType, WrappedComponentProps<P>>((props, ref) => {
-    const { as: As = Component, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props;
+    const { as: As = Component, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props as BaseProps & P;
     return (
       <As
         {...rest}
@@ -104,7 +104,7 @@ export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   return forwardRef<ElementType, WrappedComponentProps<P>>((props, ref) => {
-    const { as: As = Component, tabIndex, focusable, onFocus, onBlur, ...rest } = props;
+    const { as: As = Component, tabIndex, focusable, onFocus, onBlur, ...rest } = props as BaseProps & P;
     return (
       <As
         {...rest}
@@ -124,7 +124,7 @@ export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   return forwardRef<ElementType, WrappedComponentProps<P>>((props, ref) => {
-    const { as: As = Component, selected, checked, onChange, ...rest } = props;
+    const { as: As = Component, selected, checked, onChange, ...rest } = props as BaseProps & P;
     return (
       <As
         {...rest}
