@@ -12,7 +12,6 @@
     "lint": "biome check .",
     "clean": "rm -rf node_modules packages/*/node_modules",
     "format": "biome format . --write",
-    "prepare": "npm install --workspaces",
     "version": "lerna version",
     "publish": "lerna publish"
   },
