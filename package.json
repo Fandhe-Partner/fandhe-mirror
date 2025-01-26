@@ -10,10 +10,11 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "lint": "biome check .",
-    "clean": "lerna clean --yes",
+    "clean": "lerna clean --yes && rm -rf node_modules",
+    "format": "biome format . --write",
+    "prepare": "npm install",
     "version": "lerna version",
-    "publish": "lerna publish",
-    "format": "biome format . --write"
+    "publish": "lerna publish"
   },
   "keywords": [
     "headless-ui",
