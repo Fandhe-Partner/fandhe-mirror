@@ -40,6 +40,10 @@ importers:
         version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
 
   packages/mirror-config-tsconfig:
+    dependencies:
+      '@fandhe/mirror-config-biome':
+        specifier: workspace:*
+        version: link:../mirror-config-biome
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
