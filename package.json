@@ -10,12 +10,15 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "lint": "biome check .",
-    "clean": "lerna clean --yes && rm -rf node_modules",
+    "clean": "rm -rf node_modules packages/*/node_modules",
     "format": "biome format . --write",
-    "postinstall": "lerna bootstrap",
+    "prepare": "npm install --workspaces",
     "version": "lerna version",
     "publish": "lerna publish"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "headless-ui",
     "design-tools",
