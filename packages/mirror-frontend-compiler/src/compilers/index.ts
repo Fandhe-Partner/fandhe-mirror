@@ -1,4 +1,4 @@
-import type { Framework, CompilerOptions } from '../types';
+import type { CompilerOptions, Framework } from '../types';
 
 export class FrontendCompiler {
   constructor(private options: CompilerOptions) {}
@@ -21,7 +21,9 @@ export class FrontendCompiler {
         // Implement Solid compilation
         break;
       default:
-        throw new Error(`Unsupported framework: ${this.options.framework.framework}`);
+        throw new Error(
+          `Unsupported framework: ${this.options.framework.framework}`
+        );
     }
   }
 }
