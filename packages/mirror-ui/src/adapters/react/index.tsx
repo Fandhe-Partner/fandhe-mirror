@@ -6,7 +6,8 @@ import React, {
   type ForwardRefExoticComponent,
   type RefAttributes,
   type ElementType,
-  type ForwardedRef
+  type ForwardedRef,
+  type PropsWithoutRef
 } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
@@ -25,12 +26,12 @@ interface BaseProps {
   onChange?: (event: React.ChangeEvent) => void;
 }
 
-type WrappedComponentProps<P> = Omit<P, keyof BaseProps> & BaseProps & {
+type WrappedComponentProps<P> = P & BaseProps & {
   as?: ComponentType<P>;
 };
 
-type WrappedComponent<P> = ForwardRefExoticComponent<PropsWithoutRef<WrappedComponentProps<P>> & RefAttributes<ElementType>> & {
-  defaultProps?: Partial<PropsWithoutRef<WrappedComponentProps<P>> & RefAttributes<ElementType>>;
+type WrappedComponent<P> = ForwardRefExoticComponent<PropsWithoutRef<P> & BaseProps & RefAttributes<ElementType>> & {
+  defaultProps?: Partial<PropsWithoutRef<P> & BaseProps & RefAttributes<ElementType>>;
   displayName?: string;
 };
 
