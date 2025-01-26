@@ -12,7 +12,8 @@ const lintConfig = {
 const baseConfigPath = path.resolve(__dirname, '../biome.base.json');
 
 // Run biome with common configuration
-const result = spawnSync('biome', [
+const result = spawnSync('npx', [
+  '@biomejs/biome',
   'check',
   '.',
   '--config-path',
