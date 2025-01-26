@@ -1,6 +1,6 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
-  "extends": ["../biome.base.json"],
+  "extends": ["@fandhe/mirror-config-biome/biome.base.json"],
   "files": {
     "include": ["src/**/*.{ts,tsx,js,jsx}", "tests/**/*.{ts,tsx,js,jsx}"]
   }
