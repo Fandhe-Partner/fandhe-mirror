@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { DesignCompiler } from '../src/compilers';
 
 describe('DesignCompiler', () => {
@@ -13,7 +13,9 @@ describe('DesignCompiler', () => {
   });
 
   it('should throw error for unsupported design tool', async () => {
-    const compiler = new DesignCompiler({ tool: { tool: 'unsupported' as any } });
+    const compiler = new DesignCompiler({
+      tool: { tool: 'unsupported' as 'figma' | 'framer' | 'uxpin' },
+    });
     await expect(compiler.compile()).rejects.toThrow('Unsupported design tool');
   });
 });
