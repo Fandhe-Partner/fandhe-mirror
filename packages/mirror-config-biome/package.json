@@ -6,11 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src",
-    "biome.base.json"
-  ],
+  "files": ["dist", "src", "biome.base.json"],
   "scripts": {
     "build": "node ../scripts/build.js",
     "test": "node ../scripts/test.js",
