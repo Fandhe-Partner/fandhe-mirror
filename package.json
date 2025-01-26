@@ -23,7 +23,7 @@
     "react",
     "vue"
   ],
-  "author": "Fandhe Partners",
+  "author": "Fandhe Inc.",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
