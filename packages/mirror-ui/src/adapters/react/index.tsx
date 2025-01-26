@@ -35,9 +35,9 @@ type PolymorphicComponentPropWithRef<
 > = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
 
 type ComponentProps<T extends ElementType> = T extends new (...args: any) => any
-  ? Omit<PropsWithoutRef<InstanceType<T>>, keyof MirrorComponent>
+  ? InstanceType<T>
   : T extends keyof JSX.IntrinsicElements
-  ? PropsWithoutRef<JSX.IntrinsicElements[T]>
+  ? JSX.IntrinsicElements[T]
   : {};
 
 type WrappedComponent<P> = {
@@ -54,17 +54,17 @@ export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   const WrappedComponent = forwardRef(
-    <C extends ElementType = 'div'>(
+    <C extends ElementType = typeof Component>(
       { as, ...props }: PolymorphicComponentPropWithRef<C, P>,
       ref: PolymorphicRef<C>
     ) => {
       const Comp = as || Component;
-      return <Comp {...props} ref={ref} />;
+      return <Comp {...(props as P)} ref={ref} />;
     }
   );
   
   WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
-  return WrappedComponent as WrappedComponent<P>;
+  return WrappedComponent as unknown as WrappedComponent<P>;
 }
 
 /**
@@ -110,25 +110,25 @@ export function withAria<P extends MirrorComponent>(
   role?: AriaRole
 ): WrappedComponent<P> {
   const WrappedComponent = forwardRef(
-    <C extends ElementType = 'div'>(
+    <C extends ElementType = typeof Component>(
       { as, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...props }: PolymorphicComponentPropWithRef<C, P>,
       ref: PolymorphicRef<C>
     ) => {
       const Comp = as || Component;
-      return (
-        <Comp
-          {...props}
-          ref={ref}
-          aria-label={ariaLabel}
-          aria-description={ariaDescription}
-          role={role}
-        />
-      );
+      const componentProps = {
+        ...props,
+        ref,
+        'aria-label': ariaLabel,
+        'aria-description': ariaDescription,
+        role
+      } as P;
+      
+      return <Comp {...componentProps} />;
     }
   );
   
   WrappedComponent.displayName = `WithAria(${Component.displayName || Component.name || 'Component'})`;
-  return WrappedComponent as WrappedComponent<P>;
+  return WrappedComponent as unknown as WrappedComponent<P>;
 }
 
 /**
@@ -138,25 +138,25 @@ export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   const WrappedComponent = forwardRef(
-    <C extends ElementType = 'div'>(
+    <C extends ElementType = typeof Component>(
       { as, tabIndex, focusable, onFocus, onBlur, ...props }: PolymorphicComponentPropWithRef<C, P>,
       ref: PolymorphicRef<C>
     ) => {
       const Comp = as || Component;
-      return (
-        <Comp
-          {...props}
-          ref={ref}
-          tabIndex={focusable ? tabIndex ?? 0 : -1}
-          onFocus={onFocus}
-          onBlur={onBlur}
-        />
-      );
+      const componentProps = {
+        ...props,
+        ref,
+        tabIndex: focusable ? tabIndex ?? 0 : -1,
+        onFocus,
+        onBlur
+      } as P;
+      
+      return <Comp {...componentProps} />;
     }
   );
   
   WrappedComponent.displayName = `WithFocus(${Component.displayName || Component.name || 'Component'})`;
-  return WrappedComponent as WrappedComponent<P>;
+  return WrappedComponent as unknown as WrappedComponent<P>;
 }
 
 /**
@@ -166,23 +166,23 @@ export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
   const WrappedComponent = forwardRef(
-    <C extends ElementType = 'div'>(
+    <C extends ElementType = typeof Component>(
       { as, selected, checked, onChange, ...props }: PolymorphicComponentPropWithRef<C, P>,
       ref: PolymorphicRef<C>
     ) => {
       const Comp = as || Component;
-      return (
-        <Comp
-          {...props}
-          ref={ref}
-          aria-selected={selected}
-          aria-checked={checked}
-          onChange={onChange}
-        />
-      );
+      const componentProps = {
+        ...props,
+        ref,
+        'aria-selected': selected,
+        'aria-checked': checked,
+        onChange
+      } as P;
+      
+      return <Comp {...componentProps} />;
     }
   );
   
   WrappedComponent.displayName = `WithSelection(${Component.displayName || Component.name || 'Component'})`;
-  return WrappedComponent as WrappedComponent<P>;
+  return WrappedComponent as unknown as WrappedComponent<P>;
 }
