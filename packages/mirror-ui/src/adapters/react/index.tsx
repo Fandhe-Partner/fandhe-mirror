@@ -7,14 +7,14 @@ import React, {
   type PropsWithoutRef,
   type RefAttributes,
   type ElementType,
-  type ReactElement
+  type ReactElement,
+  type ForwardedRef
 } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
-type ReactProps<P> = PropsWithoutRef<P> & RefAttributes<HTMLElement>;
-type ReactComponent<P> = (props: ReactProps<P>) => ReactElement | null;
+type ReactProps<P> = P & RefAttributes<HTMLElement>;
 
 /**
  * HOC to create a React component from Mirror component interface
@@ -23,7 +23,7 @@ export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): ComponentType<P> {
   const WrappedComponent = forwardRef<HTMLElement, P>((props, ref) => (
-    <Component {...props} ref={ref} />
+    <Component {...(props as any)} ref={ref} />
   ));
   WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
   return WrappedComponent;
@@ -76,7 +76,7 @@ export function withAria<P extends MirrorComponent>(
 
     return (
       <Component
-        {...rest as P}
+        {...(rest as any)}
         ref={ref}
         aria-label={ariaLabel}
         aria-description={ariaDescription}
@@ -99,7 +99,7 @@ export function withFocus<P extends FocusableComponent>(
 
     return (
       <Component
-        {...rest as P}
+        {...(rest as any)}
         ref={ref}
         tabIndex={focusable ? tabIndex ?? 0 : -1}
         onFocus={onFocus}
@@ -122,7 +122,7 @@ export function withSelection<P extends SelectableComponent>(
 
     return (
       <Component
-        {...rest as P}
+        {...(rest as any)}
         ref={ref}
         aria-selected={selected}
         aria-checked={checked}
