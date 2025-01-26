@@ -6,23 +6,29 @@ import React, {
   type ForwardRefExoticComponent,
   type PropsWithoutRef,
   type RefAttributes,
-  type ForwardedRef
+  type ForwardedRef,
+  type ReactElement
 } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
-type ForwardRefComponent<P> = ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>>;
+type HOCProps<P> = Omit<P, keyof RefAttributes<HTMLElement>> & {
+  ref?: ForwardedRef<HTMLElement>;
+};
 
 /**
  * HOC to create a React component from Mirror component interface
  */
 export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
-): ForwardRefComponent<P> {
-  return forwardRef<HTMLElement, P>((props, ref) => (
-    <Component {...props} ref={ref} />
+): ComponentType<HOCProps<P>> {
+  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => (
+    <Component {...(props as P)} ref={ref} />
   ));
+  
+  WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent as ComponentType<P>;
 }
 
 /**
@@ -66,8 +72,8 @@ export function useFocusGuard() {
 export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
-): ForwardRefComponent<P> {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ComponentType<HOCProps<P>> {
+  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
     const { 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props;
 
     return (
@@ -80,6 +86,9 @@ export function withAria<P extends MirrorComponent>(
       />
     );
   });
+  
+  WrappedComponent.displayName = `WithAria(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent as ComponentType<P>;
 }
 
 /**
@@ -87,8 +96,8 @@ export function withAria<P extends MirrorComponent>(
  */
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
-): ForwardRefComponent<P> {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ComponentType<HOCProps<P>> {
+  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
     const { tabIndex, focusable, onFocus, onBlur, ...rest } = props;
 
     return (
@@ -101,6 +110,9 @@ export function withFocus<P extends FocusableComponent>(
       />
     );
   });
+  
+  WrappedComponent.displayName = `WithFocus(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent as ComponentType<P>;
 }
 
 /**
@@ -108,8 +120,8 @@ export function withFocus<P extends FocusableComponent>(
  */
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
-): ForwardRefComponent<P> {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ComponentType<HOCProps<P>> {
+  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
     const { selected, checked, onChange, ...rest } = props;
 
     return (
@@ -122,6 +134,7 @@ export function withSelection<P extends SelectableComponent>(
       />
     );
   });
-}
-}
+  
+  WrappedComponent.displayName = `WithSelection(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent as ComponentType<P>;
 }
