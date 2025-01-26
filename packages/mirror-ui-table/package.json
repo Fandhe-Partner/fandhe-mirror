@@ -1,0 +1,24 @@
+{
+  "name": "@fandhe/mirror-ui-table",
+  "version": "0.0.1",
+  "description": "Table-specific components for Mirror UI",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "lint": "biome check ."
+  },
+  "keywords": ["table", "headless-ui", "components", "accessibility"],
+  "author": "Fandhe Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@fandhe/mirror-ui": "^0.0.1",
+    "@fandhe/mirror-ui-base": "^0.0.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "vitest": "^1.0.0"
+  }
+}

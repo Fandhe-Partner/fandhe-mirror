@@ -1,0 +1,23 @@
+{
+  "name": "@fandhe/mirror-frontend-compiler",
+  "version": "0.0.1",
+  "description": "Frontend framework compiler for Mirror UI",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "lint": "biome check ."
+  },
+  "keywords": ["frontend", "compiler", "react", "vue", "svelte", "lit", "solid"],
+  "author": "Fandhe Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@fandhe/mirror-ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "vitest": "^1.0.0"
+  }
+}

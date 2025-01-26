@@ -1,0 +1,24 @@
+{
+  "name": "@fandhe/mirror-frontend-generator",
+  "version": "0.0.1",
+  "description": "Frontend code generator for Mirror UI",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "lint": "biome check ."
+  },
+  "keywords": ["frontend", "generator", "react", "vue", "svelte", "lit", "solid"],
+  "author": "Fandhe Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@fandhe/mirror-frontend-compiler": "^0.0.1",
+    "@fandhe/mirror-ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1",
+    "vitest": "^1.0.0"
+  }
+}
