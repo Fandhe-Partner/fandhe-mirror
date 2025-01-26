@@ -12,11 +12,11 @@ import type { MirrorComponent, FocusableComponent, SelectableComponent } from '.
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
 
-type WrappedComponentProps<P> = P & {
+type WrappedComponentProps<P> = Omit<P, 'ref'> & {
   as?: ElementType;
 };
 
-type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<unknown>>;
+type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & RefAttributes<ElementType>>;
 
 /**
  * HOC to create a React component from Mirror component interface
@@ -24,13 +24,13 @@ type WrappedComponent<P> = ForwardRefExoticComponent<WrappedComponentProps<P> & 
 export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
     const { as: As = Component, ...rest } = props;
     return <As {...rest} ref={ref} />;
   });
 
-  Wrapped.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
-  return Wrapped;
+  WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -75,7 +75,7 @@ export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
     const { as: As = Component, 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props;
     return (
       <As
@@ -88,8 +88,8 @@ export function withAria<P extends MirrorComponent>(
     );
   });
 
-  Wrapped.displayName = `WithAria(${Component.displayName || Component.name || 'Component'})`;
-  return Wrapped;
+  WrappedComponent.displayName = `WithAria(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -98,7 +98,7 @@ export function withAria<P extends MirrorComponent>(
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
     const { as: As = Component, tabIndex, focusable, onFocus, onBlur, ...rest } = props;
     return (
       <As
@@ -111,8 +111,8 @@ export function withFocus<P extends FocusableComponent>(
     );
   });
 
-  Wrapped.displayName = `WithFocus(${Component.displayName || Component.name || 'Component'})`;
-  return Wrapped;
+  WrappedComponent.displayName = `WithFocus(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
 
 /**
@@ -121,7 +121,7 @@ export function withFocus<P extends FocusableComponent>(
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const Wrapped = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<unknown, WrappedComponentProps<P>>((props, ref) => {
     const { as: As = Component, selected, checked, onChange, ...rest } = props;
     return (
       <As
@@ -134,6 +134,6 @@ export function withSelection<P extends SelectableComponent>(
     );
   });
 
-  Wrapped.displayName = `WithSelection(${Component.displayName || Component.name || 'Component'})`;
-  return Wrapped;
+  WrappedComponent.displayName = `WithSelection(${Component.displayName || Component.name || 'Component'})`;
+  return WrappedComponent;
 }
