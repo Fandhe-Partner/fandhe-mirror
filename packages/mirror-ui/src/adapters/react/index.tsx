@@ -18,7 +18,7 @@ type HOCProps<P extends MirrorComponent> = Omit<P, keyof RefAttributes<HTMLEleme
   ref?: ForwardedRef<HTMLElement>;
 };
 
-type WrappedComponent<P extends MirrorComponent> = FC<HOCProps<P>> & {
+type WrappedComponent<P extends MirrorComponent> = ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>> & {
   displayName?: string;
 };
 
@@ -28,9 +28,8 @@ type WrappedComponent<P extends MirrorComponent> = FC<HOCProps<P>> & {
 export function createComponent<P extends MirrorComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
-    const componentProps = { ...props, ref } as P;
-    return <Component {...componentProps} />;
+  const WrappedComponent = forwardRef<HTMLElement, P>((props, ref) => {
+    return <Component {...props} ref={ref} />;
   });
   
   WrappedComponent.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
@@ -79,7 +78,7 @@ export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
 ): WrappedComponent<P> {
-  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<HTMLElement, P>((props, ref) => {
     const { 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props;
 
     return (
@@ -103,7 +102,7 @@ export function withAria<P extends MirrorComponent>(
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<HTMLElement, P>((props, ref) => {
     const { tabIndex, focusable, onFocus, onBlur, ...rest } = props;
 
     return (
@@ -127,7 +126,7 @@ export function withFocus<P extends FocusableComponent>(
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
 ): WrappedComponent<P> {
-  const WrappedComponent = forwardRef<HTMLElement, HOCProps<P>>((props, ref) => {
+  const WrappedComponent = forwardRef<HTMLElement, P>((props, ref) => {
     const { selected, checked, onChange, ...rest } = props;
 
     return (
