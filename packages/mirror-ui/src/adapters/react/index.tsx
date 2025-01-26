@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useEffect, type ComponentType, type ForwardRefRenderFunction } from 'react';
+import React, { forwardRef, useRef, useEffect, type ComponentType, type ForwardRefRenderFunction, type PropsWithoutRef, type ForwardRefExoticComponent, type RefAttributes } from 'react';
 import type { MirrorComponent, FocusableComponent, SelectableComponent } from '../../types/component';
 import { setAriaAttributes, setAriaRole, type AriaRole } from '../../utils/aria';
 import { FocusTrap, FocusGuard } from '../../utils/focus';
@@ -7,8 +7,8 @@ import { FocusTrap, FocusGuard } from '../../utils/focus';
  * HOC to create a React component from Mirror component interface
  */
 export function createComponent<P extends MirrorComponent>(
-  render: ForwardRefRenderFunction<HTMLElement, P>
-): ComponentType<P> {
+  render: ForwardRefRenderFunction<HTMLElement, PropsWithoutRef<P>>
+): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>> {
   return forwardRef(render);
 }
 
@@ -53,14 +53,14 @@ export function useFocusGuard() {
 export function withAria<P extends MirrorComponent>(
   Component: ComponentType<P>,
   role?: AriaRole
-) {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>> {
+  return forwardRef<HTMLElement, PropsWithoutRef<P>>((props, ref) => {
     const { 'aria-label': ariaLabel, 'aria-description': ariaDescription, ...rest } = props;
 
     return (
       <Component
+        {...(rest as P)}
         ref={ref}
-        {...rest}
         aria-label={ariaLabel}
         aria-description={ariaDescription}
         role={role}
@@ -74,14 +74,14 @@ export function withAria<P extends MirrorComponent>(
  */
 export function withFocus<P extends FocusableComponent>(
   Component: ComponentType<P>
-) {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>> {
+  return forwardRef<HTMLElement, PropsWithoutRef<P>>((props, ref) => {
     const { tabIndex, focusable, onFocus, onBlur, ...rest } = props;
 
     return (
       <Component
+        {...(rest as P)}
         ref={ref}
-        {...rest}
         tabIndex={focusable ? tabIndex ?? 0 : -1}
         onFocus={onFocus}
         onBlur={onBlur}
@@ -95,14 +95,14 @@ export function withFocus<P extends FocusableComponent>(
  */
 export function withSelection<P extends SelectableComponent>(
   Component: ComponentType<P>
-) {
-  return forwardRef<HTMLElement, P>((props, ref) => {
+): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<HTMLElement>> {
+  return forwardRef<HTMLElement, PropsWithoutRef<P>>((props, ref) => {
     const { selected, checked, onChange, ...rest } = props;
 
     return (
       <Component
+        {...(rest as P)}
         ref={ref}
-        {...rest}
         aria-selected={selected}
         aria-checked={checked}
         onChange={onChange}
