@@ -9,10 +9,11 @@
   "scripts": {
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "lerna run lint",
-    "clean": "lerna clean",
+    "lint": "biome check .",
+    "clean": "lerna clean --yes",
     "version": "lerna version",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "format": "biome format . --write"
   },
   "keywords": [
     "headless-ui",
