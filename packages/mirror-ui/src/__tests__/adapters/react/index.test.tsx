@@ -59,7 +59,7 @@ describe('React adapter', () => {
   });
 
   describe('withFocus', () => {
-    it('should add focus management to component', () => {
+    it('should add focus management to component', async () => {
       const BaseComponent = createComponent<FocusableComponent>((props, ref) => (
         <div ref={ref} {...props} />
       ));
@@ -78,16 +78,20 @@ describe('React adapter', () => {
       );
 
       const element = container.firstChild as HTMLElement;
-      fireEvent.focus(element);
+      await act(async () => {
+        fireEvent.focus(element);
+      });
       expect(onFocus).toHaveBeenCalled();
 
-      fireEvent.blur(element);
+      await act(async () => {
+        fireEvent.blur(element);
+      });
       expect(onBlur).toHaveBeenCalled();
     });
   });
 
   describe('withSelection', () => {
-    it('should add selection support to component', () => {
+    it('should add selection support to component', async () => {
       const BaseComponent = createComponent<SelectableComponent>((props, ref) => (
         <div ref={ref} {...props} />
       ));
@@ -103,11 +107,17 @@ describe('React adapter', () => {
         />
       );
 
+      await act(async () => {
+        await Promise.resolve();
+      });
+
       expect(container.firstChild).toHaveAttribute('aria-selected', 'true');
       expect(container.firstChild).toHaveAttribute('aria-checked', 'true');
 
       const element = container.firstChild as HTMLElement;
-      fireEvent.click(element);
+      await act(async () => {
+        fireEvent.click(element);
+      });
       expect(onChange).toHaveBeenCalled();
     });
   });
