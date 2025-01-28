@@ -4,6 +4,7 @@ export default defineConfig({
   test: {
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     environment: 'happy-dom',
+    globals: true,
     coverage: {
       provider: 'v8',
       reporter: ['json-summary', 'json'],
