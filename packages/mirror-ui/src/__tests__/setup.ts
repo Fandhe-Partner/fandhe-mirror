@@ -5,10 +5,10 @@ import { act } from '@testing-library/react';
 
 configure({ 
   asyncUtilTimeout: 1000,
-  eventWrapper: (cb: () => unknown) => {
+  eventWrapper: async (cb: () => unknown) => {
     let result: unknown;
-    act(() => {
-      result = cb();
+    await act(async () => {
+      result = await cb();
     });
     return result;
   }
