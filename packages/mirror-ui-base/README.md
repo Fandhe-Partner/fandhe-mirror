@@ -4,12 +4,12 @@ Foundation components with accessibility features.
 
 ## Installation
 
-\`\`\`bash
+```bash
 npm install @fandhe/mirror-ui-base
-\`\`\`
+```
 
 ## Usage
 
-\`\`\`typescript
+```typescript
 import { AccessibleComponent } from '@fandhe/mirror-ui-base';
-\`\`\`
+```

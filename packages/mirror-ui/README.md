@@ -4,12 +4,12 @@ Core package for headless UI components using custom syntax.
 
 ## Installation
 
-\`\`\`bash
+```bash
 npm install @fandhe/mirror-ui
-\`\`\`
+```
 
 ## Usage
 
-\`\`\`typescript
+```typescript
 import { Component } from '@fandhe/mirror-ui';
-\`\`\`
+```

@@ -29,6 +29,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.5.3
         version: 1.9.4
+      '@fandhe/mirror-config-tsconfig':
+        specifier: workspace:*
+        version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
         version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))

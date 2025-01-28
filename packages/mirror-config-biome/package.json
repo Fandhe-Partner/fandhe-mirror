@@ -17,6 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
+    "@fandhe/mirror-config-tsconfig": "workspace:*",
     "@vitest/coverage-v8": "^1.0.0",
     "tsup": "^8.0.1",
     "vitest": "^1.0.0"

@@ -1,4 +1,5 @@
-import React, {
+import {
+  type default as React,
   forwardRef,
   useRef,
   useEffect,
