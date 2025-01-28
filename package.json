@@ -8,6 +8,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "lerna run build --stream",
+    "dev": "lerna run dev --stream",
     "test": "lerna run test --stream",
     "lint": "lerna run lint --stream",
     "clean": "rm -rf node_modules packages/*/node_modules",

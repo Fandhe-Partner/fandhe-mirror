@@ -53,15 +53,15 @@ describe('Focus utilities', () => {
       const buttons = container.querySelectorAll('button');
       const firstButton = buttons[0];
       const lastButton = buttons[2];
-
+      
       // Focus last button and press Tab
       lastButton.focus();
-      lastButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
+      lastButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }));
       expect(document.activeElement).toBe(firstButton);
 
       // Focus first button and press Shift+Tab
       firstButton.focus();
-      firstButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true }));
+      firstButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true, bubbles: true }));
       expect(document.activeElement).toBe(lastButton);
 
       focusTrap.deactivate();
