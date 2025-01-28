@@ -1,13 +1,12 @@
 import { PropertySymbol } from "happy-dom";
-import { expect } from 'vitest';
 import '@testing-library/jest-dom';
 import { configure } from '@testing-library/react';
 import { act } from '@testing-library/react';
 
 configure({ 
   asyncUtilTimeout: 1000,
-  eventWrapper: (cb) => {
-    let result;
+  eventWrapper: (cb: () => unknown) => {
+    let result: unknown;
     act(() => {
       result = cb();
     });
@@ -16,7 +15,7 @@ configure({
 });
 
 const browserWindow =
-  global.document[PropertySymbol.ownerWindow] ||
+  global.document[PropertySymbol.openerWindow] ||
   global.document[PropertySymbol.window];
 
 global.setTimeout = browserWindow.setTimeout.bind(browserWindow);

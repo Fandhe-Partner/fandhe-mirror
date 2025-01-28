@@ -42,13 +42,13 @@ export function createComponent<P extends MirrorComponent>(
 ): WrappedComponent<P> {
   const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
     const { as: As = Component, ...rest } = props;
-    const internalRef = useRef(null);
-    const combinedRef = (node: any) => {
+    const internalRef = useRef<ElementType | null>(null);
+    const combinedRef = (node: ElementType | null) => {
       internalRef.current = node;
       if (typeof ref === 'function') {
         ref(node);
       } else if (ref) {
-        (ref as React.MutableRefObject<any>).current = node;
+        (ref as React.MutableRefObject<ElementType | null>).current = node;
       }
     };
     return <As {...(rest as unknown as P)} ref={combinedRef} />;
