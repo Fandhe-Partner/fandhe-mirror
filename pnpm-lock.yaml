@@ -34,13 +34,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-config-tsconfig:
     dependencies:
@@ -53,13 +53,13 @@ importers:
         version: 1.9.4
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-design-compiler:
     dependencies:
@@ -78,13 +78,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-design-generator:
     dependencies:
@@ -106,13 +106,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-frontend-compiler:
     dependencies:
@@ -131,13 +131,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-frontend-generator:
     dependencies:
@@ -159,13 +159,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui:
     dependencies:
@@ -220,7 +220,10 @@ importers:
         version: 18.3.5(@types/react@18.3.18)
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
+      happy-dom:
+        specifier: ^16.7.3
+        version: 16.7.3
       jsdom:
         specifier: ^26.0.0
         version: 26.0.0
@@ -235,7 +238,7 @@ importers:
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui-animation:
     dependencies:
@@ -257,13 +260,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui-base:
     dependencies:
@@ -282,13 +285,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui-design-generator:
     dependencies:
@@ -313,13 +316,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui-frontend-generator:
     dependencies:
@@ -344,13 +347,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
   packages/mirror-ui-table:
     dependencies:
@@ -372,13 +375,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
 
 packages:
 
@@ -2157,6 +2160,10 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
+  happy-dom@16.7.3:
+    resolution: {integrity: sha512-76uiE9jCpC849cOyYZ8YBROpPcstW/hwCKoQYd3aiZaxHeR9zdjpup4z7qYEWbt+lY8Rb3efW2gmrckyoBftKg==}
+    engines: {node: '>=18.0.0'}
+
   hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
     engines: {node: '>=6'}
@@ -3905,6 +3912,10 @@ packages:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
 
+  whatwg-mimetype@3.0.0:
+    resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
+    engines: {node: '>=12'}
+
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
     engines: {node: '>=18'}
@@ -4914,7 +4925,7 @@ snapshots:
 
   '@types/trusted-types@2.0.7': {}
 
-  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0))':
+  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -4929,7 +4940,7 @@ snapshots:
       std-env: 3.8.0
       strip-literal: 2.1.1
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.17.16)(jsdom@26.0.0)
+      vitest: 1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -5895,6 +5906,11 @@ snapshots:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.19.3
+
+  happy-dom@16.7.3:
+    dependencies:
+      webidl-conversions: 7.0.0
+      whatwg-mimetype: 3.0.0
 
   hard-rejection@2.1.0: {}
 
@@ -7757,7 +7773,7 @@ snapshots:
       '@types/node': 20.17.16
       fsevents: 2.3.3
 
-  vitest@1.6.0(@types/node@20.17.16)(jsdom@26.0.0):
+  vitest@1.6.0(@types/node@20.17.16)(happy-dom@16.7.3)(jsdom@26.0.0):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -7781,6 +7797,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.16
+      happy-dom: 16.7.3
       jsdom: 26.0.0
     transitivePeerDependencies:
       - less
@@ -7823,6 +7840,8 @@ snapshots:
   whatwg-encoding@3.1.1:
     dependencies:
       iconv-lite: 0.6.3
+
+  whatwg-mimetype@3.0.0: {}
 
   whatwg-mimetype@4.0.0: {}
 
