@@ -1,11 +1,11 @@
 import { PropertySymbol } from "happy-dom";
+import { expect } from 'vitest';
+import '@testing-library/jest-dom';
 
-// Get the browser window from the global document
 const browserWindow =
   global.document[PropertySymbol.ownerWindow] ||
   global.document[PropertySymbol.window];
 
-// Replace global timer functions with happy-dom implementations
 global.setTimeout = browserWindow.setTimeout;
 global.clearTimeout = browserWindow.clearTimeout;
 global.setInterval = browserWindow.setInterval;
