@@ -1,5 +1,4 @@
-import {
-  type default as React,
+import React, {
   forwardRef,
   useRef,
   useEffect,
@@ -43,7 +42,16 @@ export function createComponent<P extends MirrorComponent>(
 ): WrappedComponent<P> {
   const Wrapped = forwardRef<ElementType, P & BaseProps & AsComponent>((props, ref) => {
     const { as: As = Component, ...rest } = props;
-    return <As {...(rest as unknown as P)} ref={ref} />;
+    const internalRef = useRef(null);
+    const combinedRef = (node: any) => {
+      internalRef.current = node;
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref) {
+        (ref as React.MutableRefObject<any>).current = node;
+      }
+    };
+    return <As {...(rest as unknown as P)} ref={combinedRef} />;
   });
   Wrapped.displayName = `Mirror(${Component.displayName || Component.name || 'Component'})`;
   return Wrapped as WrappedComponent<P>;
