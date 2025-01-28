@@ -9,6 +9,7 @@ export default defineConfig({
       reporter: ['json-summary', 'json'],
       reportOnFailure: true,
       exclude: ['**/*.test.{js,jsx,ts,tsx}']
-    }
+    },
+    setupFiles: ['./src/__tests__/setup.ts']
   },
 });
