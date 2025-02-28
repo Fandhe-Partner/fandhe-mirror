@@ -165,13 +165,19 @@ export function withSelection<P extends SelectableComponent>(
       ...rest
     } = props;
 
+    const handleClick = (event: React.MouseEvent) => {
+      if (onChange) {
+        onChange(event);
+      }
+    };
+
     return (
       <As
         {...(rest as unknown as P)}
         ref={ref}
         aria-selected={selected}
         aria-checked={checked}
-        onChange={onChange}
+        onClick={handleClick}
       />
     );
   });

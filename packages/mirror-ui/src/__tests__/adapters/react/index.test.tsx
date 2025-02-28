@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { render, fireEvent, cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, fireEvent, cleanup, act } from '@testing-library/react';
 import {
   createComponent,
   withAria,
@@ -23,11 +22,11 @@ describe('React adapter', () => {
         text: string;
       }
 
-      const TestComponent = createComponent<TestProps>((props, ref) => (
+      const TestComponent = createComponent<TestProps>(forwardRef((props, ref) => (
         <div ref={ref} className={props.className}>
           {props.text}
         </div>
-      ));
+      )));
 
       const { container } = render(
         <TestComponent text="Test" className="test-class" />
@@ -40,9 +39,9 @@ describe('React adapter', () => {
 
   describe('withAria', () => {
     it('should add ARIA attributes to component', () => {
-      const BaseComponent = createComponent<MirrorComponent>((props, ref) => (
+      const BaseComponent = createComponent<MirrorComponent>(forwardRef((props, ref) => (
         <div ref={ref} {...props} />
-      ));
+      )));
 
       const AriaComponent = withAria(BaseComponent, 'button');
       const { container } = render(
@@ -60,9 +59,9 @@ describe('React adapter', () => {
 
   describe('withFocus', () => {
     it('should add focus management to component', async () => {
-      const BaseComponent = createComponent<FocusableComponent>((props, ref) => (
+      const BaseComponent = createComponent<FocusableComponent>(forwardRef((props, ref) => (
         <div ref={ref} {...props} />
-      ));
+      )));
 
       const FocusComponent = withFocus(BaseComponent);
       const onFocus = vi.fn();
@@ -78,6 +77,7 @@ describe('React adapter', () => {
       );
 
       const element = container.firstChild as HTMLElement;
+
       await act(async () => {
         fireEvent.focus(element);
       });
@@ -92,9 +92,9 @@ describe('React adapter', () => {
 
   describe('withSelection', () => {
     it('should add selection support to component', async () => {
-      const BaseComponent = createComponent<SelectableComponent>((props, ref) => (
+      const BaseComponent = createComponent<SelectableComponent>(forwardRef((props, ref) => (
         <div ref={ref} {...props} />
-      ));
+      )));
 
       const SelectionComponent = withSelection(BaseComponent);
       const onChange = vi.fn();
@@ -106,10 +106,6 @@ describe('React adapter', () => {
           onChange={onChange}
         />
       );
-
-      await act(async () => {
-        await Promise.resolve();
-      });
 
       expect(container.firstChild).toHaveAttribute('aria-selected', 'true');
       expect(container.firstChild).toHaveAttribute('aria-checked', 'true');
