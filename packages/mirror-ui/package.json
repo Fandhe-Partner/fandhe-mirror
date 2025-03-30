@@ -12,7 +12,9 @@
 	"keywords": ["headless-ui", "components", "accessibility"],
 	"author": "Fandhe Inc.",
 	"license": "MIT",
-	"dependencies": {},
+	"dependencies": {
+		"xstate": "^5.0.0"
+  },
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",
 		"@fandhe/mirror-config-biome": "workspace:*",
