@@ -13,8 +13,7 @@
 	"author": "Fandhe Inc.",
 	"license": "MIT",
 	"dependencies": {
-		"@fandhe/mirror-ui": "workspace:*",
-		"xstate": "^5.0.0"
+		"@fandhe/mirror-ui": "workspace:*"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",

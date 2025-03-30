@@ -168,6 +168,10 @@ importers:
         version: 1.6.0(@types/node@20.17.16)
 
   packages/mirror-ui:
+    dependencies:
+      xstate:
+        specifier: ^5.0.0
+        version: 5.19.2
     devDependencies:
       '@biomejs/biome':
         specifier: 1.5.3
@@ -221,9 +225,6 @@ importers:
       '@fandhe/mirror-ui':
         specifier: workspace:*
         version: link:../mirror-ui
-      xstate:
-        specifier: ^5.0.0
-        version: 5.19.2
     devDependencies:
       '@biomejs/biome':
         specifier: 1.5.3
