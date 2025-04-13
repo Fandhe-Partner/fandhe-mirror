@@ -1,4 +1,4 @@
 {
 	"extends": "@fandhe/mirror-config-tsconfig/tsconfig.base.json",
-	"include": ["src"]
+	"include": ["src", "./test.global.d.ts"]
 }
