@@ -12,7 +12,7 @@ export interface NormalizedProps {
  * @returns Normalized props object compatible with Mirror UI
  */
 export function normalizeProps(props: Record<string, unknown>): NormalizedProps {
-  const { children, ref, key, ...restProps } = props as {
+  const { children, ...restProps } = props as {
     children?: unknown;
     ref?: unknown;
     key?: unknown;
