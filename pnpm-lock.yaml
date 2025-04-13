@@ -34,13 +34,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-config-tsconfig:
     dependencies:
@@ -53,13 +53,13 @@ importers:
         version: 1.9.4
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-design-compiler:
     dependencies:
@@ -78,13 +78,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-design-generator:
     dependencies:
@@ -106,13 +106,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-frontend-compiler:
     dependencies:
@@ -131,13 +131,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-frontend-generator:
     dependencies:
@@ -159,13 +159,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui:
     dependencies:
@@ -199,16 +199,16 @@ importers:
         version: 18.3.20
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
-      jsdom:
-        specifier: ^23.0.1
-        version: 23.2.0
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
+      happy-dom:
+        specifier: ^12.10.3
+        version: 12.10.3
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui-animation:
     dependencies:
@@ -230,13 +230,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui-base:
     dependencies:
@@ -255,13 +255,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui-design-generator:
     dependencies:
@@ -286,13 +286,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui-frontend-generator:
     dependencies:
@@ -317,13 +317,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
   packages/mirror-ui-table:
     dependencies:
@@ -345,13 +345,13 @@ importers:
         version: link:../mirror-config-tsconfig
       '@vitest/coverage-v8':
         specifier: ^1.0.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))
       tsup:
         specifier: ^8.0.1
         version: 8.3.6(postcss@8.5.1)(typescript@5.7.3)(yaml@2.7.0)
       vitest:
         specifier: ^1.0.0
-        version: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+        version: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
 
 packages:
 
@@ -2056,6 +2056,9 @@ packages:
     resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
     engines: {node: '>=0.4.7'}
     hasBin: true
+
+  happy-dom@12.10.3:
+    resolution: {integrity: sha512-JzUXOh0wdNGY54oKng5hliuBkq/+aT1V3YpTM+lrN/GoLQTANZsMaIvmHiHe612rauHvPJnDZkZ+5GZR++1Abg==}
 
   hard-rejection@2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -3766,9 +3769,17 @@ packages:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
 
+  whatwg-encoding@2.0.0:
+    resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
+    engines: {node: '>=12'}
+
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+
+  whatwg-mimetype@3.0.0:
+    resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
+    engines: {node: '>=12'}
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -3924,12 +3935,14 @@ snapshots:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
       lru-cache: 10.4.3
+    optional: true
 
   '@asamuzakjp/dom-selector@2.0.2':
     dependencies:
       bidi-js: 1.0.3
       css-tree: 2.3.1
       is-potential-custom-element-name: 1.0.1
+    optional: true
 
   '@babel/code-frame@7.26.2':
     dependencies:
@@ -4026,12 +4039,14 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@csstools/color-helpers@5.0.2': {}
+  '@csstools/color-helpers@5.0.2':
+    optional: true
 
   '@csstools/css-calc@2.1.2(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
+    optional: true
 
   '@csstools/css-color-parser@3.0.8(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)':
     dependencies:
@@ -4039,12 +4054,15 @@ snapshots:
       '@csstools/css-calc': 2.1.2(@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3))(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-parser-algorithms': 3.0.4(@csstools/css-tokenizer@3.0.3)
       '@csstools/css-tokenizer': 3.0.3
+    optional: true
 
   '@csstools/css-parser-algorithms@3.0.4(@csstools/css-tokenizer@3.0.3)':
     dependencies:
       '@csstools/css-tokenizer': 3.0.3
+    optional: true
 
-  '@csstools/css-tokenizer@3.0.3': {}
+  '@csstools/css-tokenizer@3.0.3':
+    optional: true
 
   '@emnapi/core@1.3.1':
     dependencies:
@@ -4756,7 +4774,7 @@ snapshots:
       '@types/prop-types': 15.7.14
       csstype: 3.1.3
 
-  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0))':
+  '@vitest/coverage-v8@1.6.0(vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0))':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@bcoe/v8-coverage': 0.2.3
@@ -4771,7 +4789,7 @@ snapshots:
       std-env: 3.8.0
       strip-literal: 2.1.1
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.17.16)(jsdom@23.2.0)
+      vitest: 1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -4923,6 +4941,7 @@ snapshots:
   bidi-js@1.0.3:
     dependencies:
       require-from-string: 2.0.2
+    optional: true
 
   bin-links@4.0.4:
     dependencies:
@@ -5197,6 +5216,7 @@ snapshots:
     dependencies:
       mdn-data: 2.0.30
       source-map-js: 1.2.1
+    optional: true
 
   css.escape@1.5.1: {}
 
@@ -5206,6 +5226,7 @@ snapshots:
     dependencies:
       '@asamuzakjp/css-color': 3.1.1
       rrweb-cssom: 0.8.0
+    optional: true
 
   csstype@3.1.3: {}
 
@@ -5215,6 +5236,7 @@ snapshots:
     dependencies:
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.2.0
+    optional: true
 
   dateformat@3.0.3: {}
 
@@ -5229,7 +5251,8 @@ snapshots:
 
   decamelize@1.2.0: {}
 
-  decimal.js@10.5.0: {}
+  decimal.js@10.5.0:
+    optional: true
 
   dedent@1.5.3: {}
 
@@ -5667,6 +5690,15 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
+  happy-dom@12.10.3:
+    dependencies:
+      css.escape: 1.5.1
+      entities: 4.5.0
+      iconv-lite: 0.6.3
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+
   hard-rejection@2.1.0: {}
 
   has-bigints@1.1.0: {}
@@ -5702,6 +5734,7 @@ snapshots:
   html-encoding-sniffer@4.0.0:
     dependencies:
       whatwg-encoding: 3.1.1
+    optional: true
 
   html-escaper@2.0.2: {}
 
@@ -5877,7 +5910,8 @@ snapshots:
 
   is-plain-object@5.0.0: {}
 
-  is-potential-custom-element-name@1.0.1: {}
+  is-potential-custom-element-name@1.0.1:
+    optional: true
 
   is-regex@1.2.1:
     dependencies:
@@ -6025,6 +6059,7 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
 
   json-parse-better-errors@1.0.2: {}
 
@@ -6271,7 +6306,8 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
-  mdn-data@2.0.30: {}
+  mdn-data@2.0.30:
+    optional: true
 
   meow@8.1.2:
     dependencies:
@@ -6732,6 +6768,7 @@ snapshots:
   parse5@7.2.1:
     dependencies:
       entities: 4.5.0
+    optional: true
 
   path-exists@3.0.0: {}
 
@@ -6848,10 +6885,12 @@ snapshots:
   psl@1.15.0:
     dependencies:
       punycode: 2.3.1
+    optional: true
 
   punycode@2.3.1: {}
 
-  querystringify@2.2.0: {}
+  querystringify@2.2.0:
+    optional: true
 
   queue-microtask@1.2.3: {}
 
@@ -6942,9 +6981,11 @@ snapshots:
 
   require-directory@2.1.1: {}
 
-  require-from-string@2.0.2: {}
+  require-from-string@2.0.2:
+    optional: true
 
-  requires-port@1.0.0: {}
+  requires-port@1.0.0:
+    optional: true
 
   resolve-cwd@3.0.0:
     dependencies:
@@ -7000,9 +7041,11 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.32.0
       fsevents: 2.3.3
 
-  rrweb-cssom@0.6.0: {}
+  rrweb-cssom@0.6.0:
+    optional: true
 
-  rrweb-cssom@0.8.0: {}
+  rrweb-cssom@0.8.0:
+    optional: true
 
   run-async@2.4.1: {}
 
@@ -7029,6 +7072,7 @@ snapshots:
   saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
+    optional: true
 
   scheduler@0.23.2:
     dependencies:
@@ -7245,7 +7289,8 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  symbol-tree@3.2.4: {}
+  symbol-tree@3.2.4:
+    optional: true
 
   tar-stream@2.2.0:
     dependencies:
@@ -7318,6 +7363,7 @@ snapshots:
       punycode: 2.3.1
       universalify: 0.2.0
       url-parse: 1.5.10
+    optional: true
 
   tr46@0.0.3: {}
 
@@ -7328,6 +7374,7 @@ snapshots:
   tr46@5.1.0:
     dependencies:
       punycode: 2.3.1
+    optional: true
 
   tree-kill@1.2.2: {}
 
@@ -7420,7 +7467,8 @@ snapshots:
 
   universal-user-agent@6.0.1: {}
 
-  universalify@0.2.0: {}
+  universalify@0.2.0:
+    optional: true
 
   universalify@2.0.1: {}
 
@@ -7430,6 +7478,7 @@ snapshots:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    optional: true
 
   use-isomorphic-layout-effect@1.2.0(@types/react@18.3.20)(react@18.3.1):
     dependencies:
@@ -7479,7 +7528,7 @@ snapshots:
       '@types/node': 20.17.16
       fsevents: 2.3.3
 
-  vitest@1.6.0(@types/node@20.17.16)(jsdom@23.2.0):
+  vitest@1.6.0(@types/node@20.17.16)(happy-dom@12.10.3)(jsdom@23.2.0):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -7503,6 +7552,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.16
+      happy-dom: 12.10.3
       jsdom: 23.2.0
     transitivePeerDependencies:
       - less
@@ -7517,6 +7567,7 @@ snapshots:
   w3c-xmlserializer@5.0.0:
     dependencies:
       xml-name-validator: 5.0.0
+    optional: true
 
   walk-up-path@3.0.1: {}
 
@@ -7530,16 +7581,25 @@ snapshots:
 
   webidl-conversions@7.0.0: {}
 
-  whatwg-encoding@3.1.1:
+  whatwg-encoding@2.0.0:
     dependencies:
       iconv-lite: 0.6.3
 
-  whatwg-mimetype@4.0.0: {}
+  whatwg-encoding@3.1.1:
+    dependencies:
+      iconv-lite: 0.6.3
+    optional: true
+
+  whatwg-mimetype@3.0.0: {}
+
+  whatwg-mimetype@4.0.0:
+    optional: true
 
   whatwg-url@14.2.0:
     dependencies:
       tr46: 5.1.0
       webidl-conversions: 7.0.0
+    optional: true
 
   whatwg-url@5.0.0:
     dependencies:
@@ -7642,11 +7702,14 @@ snapshots:
       type-fest: 0.4.1
       write-json-file: 3.2.0
 
-  ws@8.18.1: {}
+  ws@8.18.1:
+    optional: true
 
-  xml-name-validator@5.0.0: {}
+  xml-name-validator@5.0.0:
+    optional: true
 
-  xmlchars@2.2.0: {}
+  xmlchars@2.2.0:
+    optional: true
 
   xstate@5.19.2: {}
 
