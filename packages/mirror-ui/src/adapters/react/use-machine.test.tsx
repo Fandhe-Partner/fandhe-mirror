@@ -3,7 +3,16 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { createMachine, assign } from 'xstate';
 import { useMachine } from './use-machine';
 import * as React from 'react';
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/matchers';
+
+type CounterEvent = 
+  | { type: 'INCREMENT' }
+  | { type: 'DECREMENT' }
+  | { type: 'SET'; value: number };
+
+interface CounterContext {
+  count: number;
+}
 
 const createCounterMachine = () => {
   return createMachine({
@@ -16,29 +25,26 @@ const createCounterMachine = () => {
       idle: {
         on: {
           INCREMENT: {
-            actions: assign({
-              count: (context) => context.count + 1
-            }),
+            actions: assign((context) => ({
+              count: context.count + 1
+            })),
           },
           DECREMENT: {
-            actions: assign({
-              count: (context) => context.count - 1
-            }),
+            actions: assign((context) => ({
+              count: context.count - 1
+            })),
           },
           SET: {
-            actions: assign({
-              count: (_, event) => event.value
-            }),
+            actions: assign((context, event) => ({
+              count: event.type === 'SET' ? event.value : context.count
+            })),
           },
         },
       },
     },
     types: {
-      context: {} as { count: number },
-      events: {} as 
-        | { type: 'INCREMENT' }
-        | { type: 'DECREMENT' }
-        | { type: 'SET', value: number },
+      context: {} as CounterContext,
+      events: {} as CounterEvent,
     },
   });
 };
