@@ -1,21 +1,20 @@
 import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
-import matchers from '@testing-library/jest-dom/matchers';
-import { PropertySymbol } from 'happy-dom';
+import * as matchers from '@testing-library/jest-dom/matchers';
+import { Window } from 'happy-dom';
 
 expect.extend(matchers);
 
-const browserWindow =
-  global.document[PropertySymbol.ownerWindow] ||
-  global.document[PropertySymbol.window];
+const window = new Window();
+const document = window.document;
 
-global.setTimeout = browserWindow.setTimeout;
-global.clearTimeout = browserWindow.clearTimeout;
-global.setInterval = browserWindow.setInterval;
-global.clearInterval = browserWindow.clearInterval;
-global.requestAnimationFrame = browserWindow.requestAnimationFrame;
-global.cancelAnimationFrame = browserWindow.cancelAnimationFrame;
-global.queueMicrotask = browserWindow.queueMicrotask;
+global.setTimeout = window.setTimeout.bind(window);
+global.clearTimeout = window.clearTimeout.bind(window);
+global.setInterval = window.setInterval.bind(window);
+global.clearInterval = window.clearInterval.bind(window);
+global.requestAnimationFrame = window.requestAnimationFrame.bind(window);
+global.cancelAnimationFrame = window.cancelAnimationFrame.bind(window);
+global.queueMicrotask = window.queueMicrotask.bind(window);
 
 afterEach(() => {
   cleanup();
