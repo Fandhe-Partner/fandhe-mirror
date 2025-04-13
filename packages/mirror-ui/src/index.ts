@@ -1,4 +1,4 @@
 /**
  * Mirror UI exports
  */
-export * from './machines';
+export * as reactAdapter from './adapters/react';
