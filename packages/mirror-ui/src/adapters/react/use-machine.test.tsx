@@ -2,7 +2,8 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { createMachine, assign } from 'xstate';
 import { useMachine } from './use-machine';
-import React from 'react';
+import * as React from 'react';
+import '@testing-library/jest-dom';
 
 const createCounterMachine = () => {
   return createMachine({
@@ -15,16 +16,29 @@ const createCounterMachine = () => {
       idle: {
         on: {
           INCREMENT: {
-            actions: assign(({ context }) => ({ count: context.count + 1 })),
+            actions: assign({
+              count: (context) => context.count + 1
+            }),
           },
           DECREMENT: {
-            actions: assign(({ context }) => ({ count: context.count - 1 })),
+            actions: assign({
+              count: (context) => context.count - 1
+            }),
           },
           SET: {
-            actions: assign(({ event }) => ({ count: event.value })),
+            actions: assign({
+              count: (_, event) => event.value
+            }),
           },
         },
       },
+    },
+    types: {
+      context: {} as { count: number },
+      events: {} as 
+        | { type: 'INCREMENT' }
+        | { type: 'DECREMENT' }
+        | { type: 'SET', value: number },
     },
   });
 };
@@ -33,10 +47,10 @@ describe('useMachine React Hook', () => {
   it('should initialize with the machine state', () => {
     const TestComponent = () => {
       const [state] = useMachine(createCounterMachine());
-      return <div>Count: {state.context.count}</div>;
+      return React.createElement('div', null, `Count: ${state.context.count}`);
     };
 
-    render(<TestComponent />);
+    render(React.createElement(TestComponent));
     expect(screen.getByText('Count: 0')).toBeInTheDocument();
   });
 
@@ -44,16 +58,24 @@ describe('useMachine React Hook', () => {
     const TestComponent = () => {
       const [state, send] = useMachine(createCounterMachine());
       
-      return (
-        <div>
-          <div>Count: {state.context.count}</div>
-          <button onClick={() => send({ type: 'INCREMENT' })}>Increment</button>
-          <button onClick={() => send({ type: 'DECREMENT' })}>Decrement</button>
-        </div>
+      return React.createElement(
+        'div',
+        null,
+        React.createElement('div', null, `Count: ${state.context.count}`),
+        React.createElement(
+          'button',
+          { onClick: () => send({ type: 'INCREMENT' }) },
+          'Increment'
+        ),
+        React.createElement(
+          'button',
+          { onClick: () => send({ type: 'DECREMENT' }) },
+          'Decrement'
+        )
       );
     };
 
-    render(<TestComponent />);
+    render(React.createElement(TestComponent));
     expect(screen.getByText('Count: 0')).toBeInTheDocument();
     
     fireEvent.click(screen.getByText('Increment'));
@@ -70,15 +92,19 @@ describe('useMachine React Hook', () => {
     const TestComponent = () => {
       const [state, send] = useMachine(createCounterMachine());
       
-      return (
-        <div>
-          <div>Count: {state.context.count}</div>
-          <button onClick={() => send({ type: 'SET', value: 10 })}>Set to 10</button>
-        </div>
+      return React.createElement(
+        'div',
+        null,
+        React.createElement('div', null, `Count: ${state.context.count}`),
+        React.createElement(
+          'button',
+          { onClick: () => send({ type: 'SET', value: 10 }) },
+          'Set to 10'
+        )
       );
     };
 
-    render(<TestComponent />);
+    render(React.createElement(TestComponent));
     expect(screen.getByText('Count: 0')).toBeInTheDocument();
     
     fireEvent.click(screen.getByText('Set to 10'));
@@ -89,22 +115,26 @@ describe('useMachine React Hook', () => {
     const onTransitionMock = vi.fn();
     
     const TestComponent = () => {
-      const [state, send, service] = useMachine(createCounterMachine());
+      const [state, send, actor] = useMachine(createCounterMachine());
       
       React.useEffect(() => {
-        const subscription = service.subscribe(onTransitionMock);
+        const subscription = actor.subscribe(onTransitionMock);
         return () => subscription.unsubscribe();
-      }, [service]);
+      }, [actor]);
       
-      return (
-        <div>
-          <div>Count: {state.context.count}</div>
-          <button onClick={() => send({ type: 'INCREMENT' })}>Increment</button>
-        </div>
+      return React.createElement(
+        'div',
+        null,
+        React.createElement('div', null, `Count: ${state.context.count}`),
+        React.createElement(
+          'button',
+          { onClick: () => send({ type: 'INCREMENT' }) },
+          'Increment'
+        )
       );
     };
 
-    render(<TestComponent />);
+    render(React.createElement(TestComponent));
     fireEvent.click(screen.getByText('Increment'));
     
     expect(onTransitionMock).toHaveBeenCalled();

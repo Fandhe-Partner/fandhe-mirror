@@ -1,36 +1,31 @@
 import { describe, it, expect, vi } from 'vitest';
 import { createToggleMachine } from './machine';
+import { createActor } from 'xstate';
 
 describe('Toggle Machine', () => {
   it('should initialize with default pressed state as false', () => {
     const machine = createToggleMachine();
-    const actor = machine.provide({
-      actions: {
-        togglePressed: () => {},
-        setPressed: () => {},
-      },
-    }).createActor();
+    const actor = createActor(machine);
     actor.start();
     
     expect(actor.getSnapshot().context.pressed).toBe(false);
+    
+    actor.stop();
   });
 
   it('should initialize with provided pressed state', () => {
     const machine = createToggleMachine({ pressed: true });
-    const actor = machine.provide({
-      actions: {
-        togglePressed: () => {},
-        setPressed: () => {},
-      },
-    }).createActor();
+    const actor = createActor(machine);
     actor.start();
     
     expect(actor.getSnapshot().context.pressed).toBe(true);
+    
+    actor.stop();
   });
 
   it('should toggle pressed state when PRESS.TOGGLE event is sent', () => {
     const machine = createToggleMachine();
-    const actor = machine.createActor();
+    const actor = createActor(machine);
     actor.start();
     
     expect(actor.getSnapshot().context.pressed).toBe(false);
@@ -42,11 +37,13 @@ describe('Toggle Machine', () => {
     actor.send({ type: 'PRESS.TOGGLE' });
     
     expect(actor.getSnapshot().context.pressed).toBe(false);
+    
+    actor.stop();
   });
 
   it('should set pressed state when PRESS.SET event is sent', () => {
     const machine = createToggleMachine();
-    const actor = machine.createActor();
+    const actor = createActor(machine);
     actor.start();
     
     expect(actor.getSnapshot().context.pressed).toBe(false);
@@ -58,12 +55,14 @@ describe('Toggle Machine', () => {
     actor.send({ type: 'PRESS.SET', pressed: false });
     
     expect(actor.getSnapshot().context.pressed).toBe(false);
+    
+    actor.stop();
   });
 
   it('should call onPressedChange when pressed state changes via PRESS.TOGGLE', () => {
     const onPressedChange = vi.fn();
     const machine = createToggleMachine({ onPressedChange });
-    const actor = machine.createActor();
+    const actor = createActor(machine);
     actor.start();
     
     actor.send({ type: 'PRESS.TOGGLE' });
@@ -75,12 +74,14 @@ describe('Toggle Machine', () => {
     
     expect(onPressedChange).toHaveBeenCalledTimes(2);
     expect(onPressedChange).toHaveBeenCalledWith(false);
+    
+    actor.stop();
   });
 
   it('should call onPressedChange when pressed state changes via PRESS.SET', () => {
     const onPressedChange = vi.fn();
     const machine = createToggleMachine({ onPressedChange });
-    const actor = machine.createActor();
+    const actor = createActor(machine);
     actor.start();
     
     actor.send({ type: 'PRESS.SET', pressed: true });
@@ -92,5 +93,7 @@ describe('Toggle Machine', () => {
     
     expect(onPressedChange).toHaveBeenCalledTimes(2);
     expect(onPressedChange).toHaveBeenCalledWith(false);
+    
+    actor.stop();
   });
 });
